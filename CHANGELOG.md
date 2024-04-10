@@ -40,7 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix type in README.md
 - Update survey alert message and translate About page
 - Update npm run command in README.md
-- Update ToFormy README.md
+- Update TerraSurvey README.md
 - Refactor About page component
 - Remove unused import and delete OldList.vue component
 - Update default layout and survey functionality

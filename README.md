@@ -1,15 +1,15 @@
-# ToFormy
+# TerraSurvey
 
-ToFormy is an advanced application aimed at collecting and managing data, ideal for any organization or individual that needs a reliable solution for collecting information. Developed as a Progressive Web App (PWA), ToFormy works seamlessly across a variety of devices, offering robust functionality both online and offline.
+TerraSurvey is an advanced application aimed at collecting and managing data, ideal for any organization or individual that needs a reliable solution for collecting information. Developed as a Progressive Web App (PWA), TerraSurvey works seamlessly across a variety of devices, offering robust functionality both online and offline.
 
 ### PREVIEW APP
-[https://toformyapp.web.app](https://toformyapp.web.app)
+[https://terrasurveyapp.web.app](https://terrasurveyapp.web.app)
 
 ## Main features
 
 - **Custom Data Collection**: Create custom forms that fit exactly your data collection needs.
 - **Database Storage**: The collected data is stored securely, facilitating access and management of information.
-- **Offline Functionality**: ToFormy supports offline data collection.
+- **Offline Functionality**: TerraSurvey supports offline data collection.
 - **Responsive Design**: The user interface is designed to work on any device, adapting perfectly to different screen sizes.
 - **Data Export**: Export collected data to CSV, facilitating analysis and integration with other systems.
 
@@ -30,11 +30,11 @@ ToFormy is an advanced application aimed at collecting and managing data, ideal 
 
 ### Installation
 
-1. Clone the ToFormy repository:
+1. Clone the TerraSurvey repository:
 
 ```bash
-git clone https://github.com/ToFormy/ToFormy.git
-cd ToFormy
+git clone https://github.com/TerraSurvey/TerraSurvey.git
+cd TerraSurvey
 ```
 
 2. Install project dependencies:
@@ -49,15 +49,15 @@ npm install
 npm run dev
 ```
 
-After starting the server, you will be able to access ToFormy at `http://localhost:8080` (or the port indicated in the terminal).
+After starting the server, you will be able to access TerraSurvey at `http://localhost:8080` (or the port indicated in the terminal).
 
 ## Usage
 
-Use ToFormy to create your custom forms, collect data, and export it as needed.
+Use TerraSurvey to create your custom forms, collect data, and export it as needed.
 
 ## Contribution
 
-Contributions to ToFormy are welcome! If you have ideas or suggestions to improve the app, feel free to fork the repository and submit a pull request.
+Contributions to TerraSurvey are welcome! If you have ideas or suggestions to improve the app, feel free to fork the repository and submit a pull request.
 
 ## More Screenshots
 
@@ -90,14 +90,14 @@ firebase deploy
 ```
 ## License
 
-ToFormy is under the MIT License. See the [LICENSE](LICENSE) file for more details.
+TerraSurvey is under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Contact
 
 - Author: Mário de Araújo Carvalho
 - Email: mariodearaujocarvalho@gmail.com
-- Project: [https://github.com/ToFormy/ToFormy](https://github.com/ToFormy/ToFormy)
+- Project: [https://github.com/TerraSurvey/TerraSurvey](https://github.com/TerraSurvey/TerraSurvey)
 
 ---
 
-Leverage ToFormy for your data collection needs!
+Leverage TerraSurvey for your data collection needs!

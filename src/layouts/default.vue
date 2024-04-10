@@ -4,7 +4,7 @@
     <v-app-bar class="">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-app-bar-title>ToFormy</v-app-bar-title>
+      <v-app-bar-title>TerraSurvey</v-app-bar-title>
 
       <v-spacer></v-spacer>
 
@@ -43,7 +43,7 @@
 
   <v-footer class="d-flex flex-column align-items-center justify-content-center">
   <div class="px-4 py-2 bg-primary text-center w-100">
-    <p>All rights reserved. ToFormy. Copyright © {{ new Date().getFullYear() }}</p>
+    <p>All rights reserved. TerraSurvey. Copyright © {{ new Date().getFullYear() }}</p>
   </div>
 
 </v-footer>

@@ -15,10 +15,10 @@
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Check for updates</v-list-item-title>
+            <v-list-item-title>Atualizar aplicativo</v-list-item-title>
             <v-list-item-subtitle>
               <v-btn size="small" color="primary" @click="loading = !loading" :loading="loading">
-                Check for updates
+                Checar atualizações
 
                 <template v-slot:loader>
                   <v-progress-linear indeterminate></v-progress-linear>
@@ -28,38 +28,45 @@
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Hosting Site</v-list-item-title>
+            <h3>Site de hospedagem</h3>
             <v-list-item-subtitle><a :href="site_deploy" target="_blank">{{ site_deploy }}</a></v-list-item-subtitle>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Version</v-list-item-title>
+            <h3>Versão</h3>
             <v-list-item-subtitle>{{ version }}</v-list-item-subtitle>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Repository</v-list-item-title>
+            <h3>
+              Código-fonte
+            </h3>
             <v-list-item-subtitle><a :href="repository" target="_blank">{{ repository }}</a></v-list-item-subtitle>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>License</v-list-item-title>
-            <v-list-item-subtitle><a href="https://opensource.org/licenses/MIT" target="_blank">{{ license
-                }}</a></v-list-item-subtitle>
+            <h3>
+              Licença
+            </h3>
+              Todos os direitos reservados 2023-{{ new Date().getFullYear() }}.  {{ appName }}© é um software gratuito. Você pode usá-lo para fins não comerciais. Dúvidas sobre o uso do software, entre em contato com o coordenador do projeto.
+              <br>
+              Consulte a Licença em: <a href="https://github.com/MarioCarvalhoBr/TerraSurvey/blob/main/LICENSE" target="_blank">{{ license
+                }}</a>
+            </v-list-item>
+
+          <v-list-item>
+            <h3>Autores</h3>
+            <i>{{ formatadorLista.format(autors) }}</i>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Author</v-list-item-title>
-            <v-list-item-subtitle><strong>{{ author }}</strong></v-list-item-subtitle>
-          </v-list-item>
-
-          <v-list-item>
-
-            <v-list-item-title>Contact Email</v-list-item-title>
+            <h3>
+              Entre em contato com o coordenador do projeto
+            </h3>
             <v-list-item-subtitle>
               <a
-                href="mailto:mariodearaujocarvalho@gmail.com?subject=ToFormy App&body=Hello Mário, I would like to talk to you about the ToFormy application.">{{
-                email }}</a>
+                href="mailto:joao.sarmento@ufms.br?subject=TerraSurvey App&body=Olá João, gostaria de falar com vocês sobre o aplicativo TerraSurvey.">{{ email
+                }}</a>
             </v-list-item-subtitle>
           </v-list-item>
 
@@ -75,14 +82,16 @@
 export default {
   data() {
     return {
-      appName: 'ToFormy',
-      appDescription: 'ToFormy is an innovative and robust solution designed to meet the data collection and management needs in various contexts. Ideal for organizations, researchers, and professionals needing an effective tool to gather information, ToFormy offers an intuitive and flexible platform, allowing the creation of custom forms tailored to any specific data collection needs.',
+      appName: 'TerraSurvey',
+      appDescription: 'TerraSurvey é um aplicativo que tem o objetivo apoiar a coleta de dados e informações com perspectivas de avaliar os impactos produzidos pela regularização fundiária dos projetos de assentamento federais do Programa Nacional de Reforma Agrária – PNRA. O sistema foi desenvolvido como parte de estudos realizados em parceria entre a Universidade Federal de Mato Grosso do Sul (UFMS) e o Instituto Nacional de Colonização e Reforma Argária (INCRA).',
       version: '1.0.0',
       author: 'Mário de Araújo Carvalho',
-      email: 'mariodearaujocarvalho@gmail.com',
-      license: 'MIT',
-      repository: 'https://github.com/ToFormy/ToFormy',
-      site_deploy: 'https://toformyapp.web.app',
+      autors: ['João Batista Sarmento dos Santos Neto', 'José Marcato Junior', 'Mário de Araújo Carvalho', 'Wesley Nunes Gonçalves', 'Kassia Tonheiro Rodrigues', 'Carolina Lino Martins P. de Camargo', 'Nadya Kalache', 'Janusa Soares de Araújo', 'Mauricio de Souza', 'Hudson Silva Borges', 'Saulo Gomes Moreira', 'Marcio Santos Araújo', 'Heber Xavier'],
+      formatadorLista: new Intl.ListFormat('pt', { style: 'long', type: 'conjunction' }),
+      email: 'joao.sarmento@ufms.br',
+      license: 'Licença TerraSurvey',
+      repository: 'https://github.com/MarioCarvalhoBr/TerraSurvey',
+      site_deploy: 'https://terrasurveyapp.web.app',
       loading: false,
     };
   },

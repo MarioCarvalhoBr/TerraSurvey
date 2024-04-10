@@ -1,0 +1,29 @@
+Informações
+
+    1. Nome do Projeto de Assentamento
+    2. Descrição da pesquisa 
+    3. Cidade
+    4. Estado
+Nome do App: TerraSurvey
+Sobre
+TerraSurvey é um sistema que tem o objetivo apoiar a coleta de dados e informações com perspectivas de avaliar os impactos produzidos pela regularização fundiária dos projetos de assentamento federais do Programa Nacional de Reforma Agrária – PNRA. O sistema foi desenvolvido como parte de estudos realizados em parceria entre a Universidade Federal de Mato Grosso do Sul (UFMS) e o Instituto Nacional de Colonização e Reforma Argária (INCRA). 
+
+Colocar logo da UFMS e INCRA
+
+Autores
+João Batista Sarmento dos Santos Neto
+José Marcato Junior
+Mário de Araújo Carvalho
+Wesley Nunes Gonçalves 
+Kassia Tonheiro Rodrigues
+Carolina Lino Martins P. de Camargo
+Nadya Kalache
+Janusa Soares de Araújo
+Mauricio de Souza
+Hudson Silva Borges
+Saulo Gomes Moreira
+Marcio Santos Araújo
+Heber Xavier
+
+Contato
+joao.sarmento@ufms.br
