@@ -43,7 +43,7 @@
 
   <v-footer class="d-flex flex-column align-items-center justify-content-center">
   <div class="px-4 py-2 bg-primary text-center w-100">
-    <p>All rights reserved. TerraSurvey. Copyright © {{ new Date().getFullYear() }}</p>
+    <p>Todos os direitos reservados 2023-{{ new Date().getFullYear() }}. TerraSurvey©.</p>
   </div>
 
 </v-footer>
@@ -56,15 +56,15 @@
 
   const links = [
     // Home page
-    ['mdi-home', 'Home', '/'],
+    ['mdi-home', 'Tela Inicial', '/'],
     // My Surveys
-    ['mdi-form-select', 'My Surveys', '/survey/list'],
+    ['mdi-form-select', 'Pesquisas', '/survey/list'],
     // Archived
-    ['mdi-archive', 'Archived', '/survey/archived'],
+    ['mdi-archive', 'Arquivados', '/survey/archived'],
     // Settings
-    ['mdi-cog', 'Settings', '/settings'],
+    ['mdi-cog', 'Configurações', '/settings'],
     // About
-    ['mdi-information', 'About', '/about'],
+    ['mdi-information', 'Sobre', '/about'],
   ]
 
   const drawer = ref(null)

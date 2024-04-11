@@ -1,8 +1,9 @@
 <template>
   <div>
-    <div class="d-flex align-center">
-      <h1 class="flex-grow-1">My Forms</h1>
-      <v-btn color="primary" size="small" @click="openDialogAddForm" style="margin-right: 10px;">New Form</v-btn>
+    <h1 class="flex-grow-1">Formulários</h1>
+    <div class="d-flex align-center" style="margin-bottom: 10px;">
+      <h1 class="flex-grow-1"></h1>
+      <v-btn color="primary" size="small" @click="openDialogAddForm" style="margin-right: 10px;">Novo Formulário</v-btn>
       <v-btn color="error" size="small" @click="exportFileSheet('csv')" style="margin-right: 10px;">.CSV</v-btn>
       <v-btn color="success" size="small" @click="exportFileSheet('xlsx')">.XLSX</v-btn>
     </div>
@@ -12,8 +13,8 @@
 
 
     <div class="d-flex align-center">
-      <h2 class="flex-grow-1">All Forms</h2>
-      <v-switch v-model="type_switch_active_table" :label="`Active Table`" hide-details color="indigo"
+      <h2 class="flex-grow-1">Meus formulários</h2>
+      <v-switch v-model="type_switch_active_table" :label="`Mostrar Tabela`" hide-details color="indigo"
         @change="changeDisplayMode"></v-switch>
     </div>
 
@@ -301,12 +302,14 @@ const deleteForm = async (form) => {
   console.log('deleteForm:', form);
   try {
     await deleteFormDB(form.value.id);
-    let message = `Form deleted successfully.`;
+    // Rescreva em pt_BR
+    //    let message = `Form deleted successfully.`;
+    let message = `Formulário deletado com sucesso.`;
 
     mySnackbar.value.createSnackbar(message, 'red-darken-4', 3000);
     console.log(message + `. Got id: ${form.value.id}`);
   } catch (error) {
-    let text = `Failed to delete form: ${error}`;
+    let text = `Falha ao deletar formulário: ${error}`;
 
     myAlert.value.createAlert('Error', text, 'error', 'mdi-alert');
     console.log(text);
@@ -319,7 +322,8 @@ const getAllForms = async (survey_code) => {
 
     // Verifica se o forms está vazio
     if (forms.value.length === 0) {
-      myAlert.value.createAlert('No forms found', 'Click on the "New Form" button to create a new form', 'info', 'mdi-information');
+      myAlert.value.createAlert('Não foram encontrados formulários', 'Clique no botão "Novo Formulário" para criar um novo formulário', 'info', 'mdi-information');
+      
     } else {
       myAlert.value.alert.show = false;
 
@@ -372,7 +376,7 @@ const getAllForms = async (survey_code) => {
 
     console.log(`Loaded ${forms.value.length} forms`);
   } catch (error) {
-    let text = `Failed to load forms: ${error}`;
+    let text = `Falha ao carregar formulários: ${error}`;
 
     myAlert.value.createAlert('Error', text, 'error', 'mdi-alert');
     console.log(text);

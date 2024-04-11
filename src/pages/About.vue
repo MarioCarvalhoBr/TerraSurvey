@@ -1,21 +1,21 @@
 <template>
   <div>
     <div class="d-flex align-center">
-      <h1 class="flex-grow-1">About</h1>
+      <h1 class="flex-grow-1">Sobre</h1>
     </div>
 
-    <v-card class="elevation-12" outlined>
+    <v-card class="elevation-1" outlined>
       <v-card-text>
         <v-list>
           <v-list-item>
             <v-list-item-title><strong>{{ appName }}</strong></v-list-item-title>
-            <p>
+            <p align="justify">
               {{ appDescription }}
             </p>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Atualizar aplicativo</v-list-item-title>
+            <h3>Atualizar aplicativo</h3>
             <v-list-item-subtitle>
               <v-btn size="small" color="primary" @click="loading = !loading" :loading="loading">
                 Checar atualizações
@@ -48,10 +48,13 @@
             <h3>
               Licença
             </h3>
+            <p align="justify">
               Todos os direitos reservados 2023-{{ new Date().getFullYear() }}.  {{ appName }}© é um software gratuito. Você pode usá-lo para fins não comerciais. Dúvidas sobre o uso do software, entre em contato com o coordenador do projeto.
               <br>
               Consulte a Licença em: <a href="https://github.com/MarioCarvalhoBr/TerraSurvey/blob/main/LICENSE" target="_blank">{{ license
                 }}</a>
+            </p>
+
             </v-list-item>
 
           <v-list-item>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="d-flex align-center">
-      <h1 class="flex-grow-1">Settings</h1>
+      <h1 class="flex-grow-1">Configurações</h1>
     </div>
 
     <v-card class="elevation-2" outlined>
@@ -9,30 +9,35 @@
         <v-list>
 
           <v-list-item>
-            <v-list-item-title>Select Material Design Theme</v-list-item-title>
+            <v-list-item-title>
+              Selecione o tema do aplicativo
+            </v-list-item-title>
             <v-list-item-subtitle>
               <v-select v-model="settings.blueprint.selected" :items="settings.blueprint.items"
-                label="Select Material Design Theme"></v-select>
+                label="Clique para selecionar"></v-select>
             </v-list-item-subtitle>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Set Dark Mode Theme</v-list-item-title>
+            <v-list-item-title>Ativar tema escuro</v-list-item-title>
             <v-list-item-subtitle>
-              <v-switch v-model="settings.darkmode" label="Dark mode"></v-switch>
+              <v-switch v-model="settings.darkmode" label="Tema Escuro"></v-switch>
             </v-list-item-subtitle>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Select Display Type for Forms</v-list-item-title>
+            <v-list-item-title>
+              Selecione o tipo de exibição para formulários
+
+            </v-list-item-title>
             <v-list-item-subtitle>
               <v-select v-model="settings.forms_display_type.selected" :items="settings.forms_display_type.items"
-                label="Select Display Type for Forms"></v-select>
+                label="Clique para selecionar"></v-select>
             </v-list-item-subtitle>
           </v-list-item>
 
           <v-btn @click="saveSettings()" color="primary" dark large outlined>
-            Save Settings
+            Salvar Configurações
           </v-btn>
 
         </v-list>

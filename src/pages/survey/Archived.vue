@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="d-flex align-center">
-      <h1 class="flex-grow-1">My archived surveys</h1>
+      <h1 class="flex-grow-1">
+        Pesquisas Arquivadas
+      </h1>
     </div>
 
     <!-- My Components -->
@@ -14,8 +16,8 @@
           <v-card-subtitle>{{ survey.data.description }}</v-card-subtitle>
           <v-card-text>{{ survey.data.city }}, {{ survey.data.state }}, {{ survey.data.country}}</v-card-text>
           <div class="">
-            <v-card-subtitle> Updated: {{ new Date(survey.changed).toLocaleDateString("pt-BR") }}</v-card-subtitle>
-            <v-card-subtitle> Created: {{ new Date(survey.created).toLocaleDateString("pt-BR") }}</v-card-subtitle>
+            <v-card-subtitle> Criado em: {{ new Date(survey.changed).toLocaleDateString("pt-BR") }}</v-card-subtitle>
+            <v-card-subtitle> Modificado em: {{ new Date(survey.created).toLocaleDateString("pt-BR") }}</v-card-subtitle>
           </div>
           <br>
           <v-divider></v-divider>
@@ -102,8 +104,8 @@ const survey_to_delete = ref(null)
 const openDialogDeleteSurvey = (survey) => {
   console.log('openDialogDeleteSurvey to survey:', JSON.stringify(survey, null, 3));
   survey_to_delete.value = survey;
-  myDialogDelete.value.createDialog('Delete survey', `Are you sure you want to delete this survey? This action cannot be undone.`, 'error', 'mdi-delete', { confirm: 'Delete', cancel: 'Close' }, { confirm: 'red', cancel: 'grey' });
-}
+  myDialogDelete.value.createDialog('Deletar Pesquisa', `Tem certeza de que deseja deletar esta pesquisa? Esta ação não pode ser desfeita.`, 'error', 'mdi-delete', { confirm: 'Deletar', cancel: 'Fechar' }, { confirm: 'red', cancel: 'grey' });
+  }
 const closeDialogDelete = () => {
   console.log('Closed from MyDialogComponent');
 };
@@ -118,7 +120,7 @@ const confirmDialogDelete = () => {
 const openDialogRecoverySurvey = (survey) => {
   console.log('openDialogRecoverySurvey to survey:', JSON.stringify(survey, null, 3));
   survey_to_delete.value = survey;
-  myDialogArchive.value.createDialog('Recovery survey', `Are you sure you want to recovery this survey?`, 'primary', 'mdi-backup-restore', { confirm: 'Recovery', cancel: 'Close' }, { confirm: 'green', cancel: 'grey' });
+  myDialogArchive.value.createDialog('Recuperar Pesquisa', `Tem certeza de que deseja recuperar esta pesquisa?`, 'primary', 'mdi-backup-restore', { confirm: 'Recuperar', cancel: 'Fechar' }, { confirm: 'green', cancel: 'grey' });
 }
 const closeDialogArchive = () => {
   console.log('Closed from MyDialogComponent');
@@ -129,20 +131,6 @@ const confirmDialogArchive = () => {
   getAllSurveys();
 };
 
-// SURVEY: Functions and methods to utilize the dialog component
-/*
-const openDialogViewSurvey = (survey) => {
-  console.log('View survey:', survey);
-  // Setup SurveyJS
-  surveyModel.data = survey.data;
-  surveyModel.showProgressBar = 'none';
-  surveyModel.mode = 'display';
-  // View mode
-  is_edit_survey_dialog.value = false
-
-  myDialogSurvey.value.createDialog('View survey', 'View survey', 'primary', 'mdi-eye', surveyModel);
-}
-*/
 const openDialogEditSurvey = (survey) => {
   console.log('openDialogEditSurvey to survey:', JSON.stringify(survey, null, 3));
 
@@ -157,7 +145,7 @@ const openDialogEditSurvey = (survey) => {
   surveyModel.showProgressBar = 'bottom';
 
   // Create the dialog
-  myDialogSurvey.value.createDialog('Edit survey', 'Edit survey', 'primary', 'mdi-pencil', surveyModel);
+  myDialogSurvey.value.createDialog('Editar Pesquisa', 'Edite a pesquisa', 'primary', 'mdi-pencil', surveyModel);
 }
 const closeDialogSurvey = () => {
   console.log('Closed from MyDialogSurveyComponent');
@@ -183,43 +171,43 @@ const createOrUpdateSurvey = async (data) => {
       const id = await createSurveyDB(data);
       idKey = id;
     }
-    let message = `Survey ${is_edit_survey_dialog.value ? 'updated' : 'created'} successfully.`;
+    let message = `Pesquisa ${is_edit_survey_dialog.value ? 'atualizada' : 'criada'} com sucesso.`
 
     mySnackbar.value.createSnackbar(message, color, 3000);
     console.log(message + ` Got id ${idKey}. Survey: ${JSON.stringify(data, null, 3)}`);
 
   } catch (error) {
-    let text = `Failed to add survey: ${error}`;
+    let text = `Falha ao adicionar pesquisa: ${error}`;
 
-    myAlert.value.createAlert('Error', text, 'error', 'mdi-alert');
+    myAlert.value.createAlert('Erro', text, 'error', 'mdi-alert');
     console.log(text);
   }
 }
 const deleteSurvey = async (survey) => {
   try {
     await deleteSurveyDB(survey.value);
-    let message = `Survey deleted successfully.`;
+    let message = `Pesquisa deletada com sucesso.`
 
     mySnackbar.value.createSnackbar(message, 'red-darken-4', 3000);
     console.log(message + ` Got id ${survey.value.id}. Survey: ${JSON.stringify(survey, null, 3)}`);
   } catch (error) {
-    let text = `Failed to delete survey: ${error}.`;
+    let text = `Falha ao deletar pesquisa: ${error}`;
 
-    myAlert.value.createAlert('Error', text, 'error', 'mdi-alert');
+    myAlert.value.createAlert('Erro', text, 'error', 'mdi-alert');
     console.log(text + ` Got id ${survey.value.id}. Survey: ${JSON.stringify(survey, null, 3)}`);
   }
 }
 const setActiveSurvey = async (survey) => {
   try {
     await setActiveSurveyDB(survey.value.id);
-    let text = `Survey recovered successfully.`;
+    let text = `Pesquisa recuperada com sucesso.`
 
     mySnackbar.value.createSnackbar(text, 'green', 3000);
     console.log(text + ` Got id ${survey.value.id}. Survey: ${JSON.stringify(survey, null, 3)}`);
   } catch (error) {
-    let text = `Failed to recover survey: ${error}.`;
+    let text = `Falha ao recuperar pesquisa: ${error}`;
 
-    myAlert.value.createAlert('Error', text, 'error', 'mdi-alert');
+    myAlert.value.createAlert('Erro', text, 'error', 'mdi-alert');
     console.log(text);
   }
 }
@@ -230,16 +218,17 @@ const getAllSurveys = async (survey_code) => {
 
     // Verifica se o surveys está vazio
     if (surveys.value.length === 0) {
-      myAlert.value.createAlert('No surveys found in archive!', '', 'info', 'mdi-information');
+      let text01 = 'Não foram encontradas pesquisas no arquivo!'
+      myAlert.value.createAlert(text01, '', 'info', 'mdi-information');
     }else{
       myAlert.value.alert.show = false;
     }
 
     console.log(`Loaded ${surveys.value.length} surveys`);
   } catch (error) {
-    let text = `Failed to load surveys: ${error}`;
+    let text = `Falha ao carregar pesquisas: ${error}`
 
-    myAlert.value.createAlert('Error', text, 'error', 'mdi-alert');
+    myAlert.value.createAlert('Erro', text, 'error', 'mdi-alert');
     console.log(text);
   }
 }
