@@ -33,7 +33,7 @@ TerraSurvey is an advanced application aimed at collecting and managing data, id
 1. Clone the TerraSurvey repository:
 
 ```bash
-git clone https://github.com/TerraSurvey/TerraSurvey.git
+git clone https://github.com/MarioCarvalhoBr/TerraSurvey.git
 cd TerraSurvey
 ```
 
@@ -95,8 +95,8 @@ TerraSurvey is under the MIT License. See the [LICENSE](LICENSE) file for more d
 ## Contact
 
 - Author: Mário de Araújo Carvalho
-- Email: mariodearaujocarvalho@gmail.com
-- Project: [https://github.com/TerraSurvey/TerraSurvey](https://github.com/TerraSurvey/TerraSurvey)
+- Email: joao.sarmento@ufms.br
+- Project: [https://github.com/MarioCarvalhoBr/TerraSurvey](https://github.com/MarioCarvalhoBr/TerraSurvey)
 
 ---
 

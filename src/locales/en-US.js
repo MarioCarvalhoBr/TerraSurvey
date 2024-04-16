@@ -146,21 +146,22 @@ export default {
     // ---------------------------------------------------------------------------------------------------------------------
     // ABOUT PAGE
     page_about_title: 'About',
-    page_about_description: 'TerraSurvey is an innovative and robust solution designed to meet the data collection and management needs in various contexts. Ideal for organizations, researchers, and professionals needing an effective tool to gather information, TerraSurvey offers an intuitive and flexible platform, allowing the creation of custom forms tailored to any specific data collection needs.',
+    page_about_description: 'TerraSurvey is a system designed to support the collection of data and information with the perspective of assessing the impacts produced by the land regularization of federal settlement projects under the Programa Nacional de Reforma Agrária (PNRA). The system was developed as part of studies conducted in partnership between the Universidade Federal de Mato Grosso do Sul (UFMS) and the Instituto Nacional de Colonização e Reforma Agrária (INCRA).',
     page_about_label_check_for_updates: 'Check for updates',
     page_about_button_check_for_updates: 'Update',
     page_about_label_hosting_site: 'Hosting Site',
     page_about_link_hosting_site: 'https://terrasurveyapp.web.app',
     page_about_label_repository: 'Repository',
-    page_about_link_repository: 'https://github.com/TerraSurvey/TerraSurvey',
+    page_about_link_repository: 'https://github.com/MarioCarvalhoBr/TerraSurvey',
     page_about_label_title_license: 'License',
-    page_about_label_name_license: 'MIT',
-    page_about_link_license: 'https://github.com/TerraSurvey/TerraSurvey/blob/main/LICENSE',
-    page_about_text_license: 'All rights reserved 2023-'+ new Date().getFullYear() +'. {app_name}© is a free software. See the License at: ',
+    page_about_label_name_license: 'TerraSurvey License',
+    page_about_link_license: 'https://github.com/MarioCarvalhoBr/TerraSurvey/blob/main/LICENSE',
+    page_about_text_license: 'All rights reserved 2023-'+ new Date().getFullYear() +'. {app_name}© is a free software. You can use it for non-commercial purposes. Questions about the use of the software, contact the project coordinator. See the License at: ',
     page_about_label_authors: 'Authors',
-    page_about_value_authors: ['Mário de Araújo Carvalho'],
+
+    page_about_value_authors: ['João Batista Sarmento dos Santos Neto', 'José Marcato Junior', 'Mário de Araújo Carvalho', 'Wesley Nunes Gonçalves', 'Kassia Tonheiro Rodrigues', 'Carolina Lino Martins P. de Camargo', 'Nadya Kalache', 'Janusa Soares de Araújo', 'Mauricio de Souza', 'Hudson Silva Borges', 'Saulo Gomes Moreira', 'Marcio Santos Araújo', 'Heber Xavier'],
     page_about_label_contact_email: 'Contact e-mail',
-    page_about_value_contact_email: "mariodearaujocarvalho{'@'}gmail.com",
+    page_about_value_contact_email: "joao.sarmento{'@'}ufms.br",
     // ---------------------------------------------------------------------------------------------------------------------
 
     // ---------------------------------------------------------------------------------------------------------------------

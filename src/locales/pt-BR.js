@@ -136,21 +136,22 @@ export default {
 
     // ABOUT PAGE
     page_about_title: 'Sobre',
-    page_about_description: 'O TerraSurvey é uma solução inovadora e robusta projetada para atender às necessidades de coleta e gerenciamento de dados em diversos contextos. Ideal para organizações, pesquisadores e profissionais que precisam de uma ferramenta eficaz para coletar informações, o TerraSurvey oferece uma plataforma intuitiva e flexível, permitindo a criação de formulários personalizados para atender a qualquer necessidade específica de coleta de dados.',
+    page_about_description: 'TerraSurvey é um sistema que tem o objetivo de apoiar a coleta de dados e informações com perspectivas de avaliar os impactos produzidos pela regularização fundiária dos projetos de assentamento federais do Programa Nacional de Reforma Agrária (PNRA). O sistema foi desenvolvido como parte de estudos realizados em parceria entre a Universidade Federal de Mato Grosso do Sul (UFMS) e o Instituto Nacional de Colonização e Reforma Agrária (INCRA).',
     page_about_label_check_for_updates: 'Verificar atualizações',
     page_about_button_check_for_updates: 'Atualizar',
-    page_about_label_hosting_site: 'Site de Hospedagem',
+    page_about_label_hosting_site: 'Site de hospedagem',
     page_about_link_hosting_site: 'https://terrasurveyapp.web.app',
-    page_about_label_repository: 'Repositório',
-    page_about_link_repository: 'https://github.com/TerraSurvey/TerraSurvey',
+    page_about_label_repository: 'Repositório do código-fonte',
+    page_about_link_repository: 'https://github.com/MarioCarvalhoBr/TerraSurvey',
     page_about_label_title_license: 'Licença',
-    page_about_label_name_license: 'MIT',
-    page_about_link_license: 'https://github.com/TerraSurvey/TerraSurvey/blob/main/LICENSE',
-    page_about_text_license: 'Todos os direitos reservados 2023-' + new Date().getFullYear() + '. {app_name}© é um software livre. Veja a Licença em: ',
+    page_about_label_name_license: 'Licença TerraSurvey',
+    page_about_link_license: 'https://github.com/MarioCarvalhoBr/TerraSurvey/blob/main/LICENSE',
+    page_about_text_license: 'Todos os direitos reservados 2023-' + new Date().getFullYear() + '. {app_name}© é um software gratuito. Você pode usá-lo para fins não comerciais. Dúvidas sobre o uso do software, entre em contato com o coordenador do projeto. Consulte a Licença em: ',
     page_about_label_authors: 'Autores',
-    page_about_value_authors: ['Mário de Araújo Carvalho'],
-    page_about_label_contact_email: 'E-mail de Contato',
-    page_about_value_contact_email: "mariodearaujocarvalho{'@'}gmail.com",
+
+    page_about_value_authors: ['João Batista Sarmento dos Santos Neto', 'José Marcato Junior', 'Mário de Araújo Carvalho', 'Wesley Nunes Gonçalves', 'Kassia Tonheiro Rodrigues', 'Carolina Lino Martins P. de Camargo', 'Nadya Kalache', 'Janusa Soares de Araújo', 'Mauricio de Souza', 'Hudson Silva Borges', 'Saulo Gomes Moreira', 'Marcio Santos Araújo', 'Heber Xavier'],
+    page_about_label_contact_email: 'Entre em contato com o coordenador do projeto',
+    page_about_value_contact_email: "joao.sarmento{'@'}ufms.br",
 
     //MENU DRAWER NAVIGATION
     menu_drawer_label_home: 'Tela Inicial',

@@ -22,7 +22,7 @@ TerraSurvey é uma aplicação avançada destinada à coleta e gerenciamento de 
 1. Clone o repositório TerraSurvey:
 
 ```bash
-git clone https://github.com/TerraSurvey/TerraSurvey.git
+git clone https://github.com/MarioCarvalhoBr/TerraSurvey.git
 cd TerraSurvey
 ```
 
@@ -55,8 +55,8 @@ TerraSurvey está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mai
 ## Contato
 
 - Autor: Mário de Araújo Carvalho
-- Email: mariodearaujocarvalho@gmail.com
-- Projeto: [https://github.com/TerraSurvey/TerraSurvey](https://github.com/TerraSurvey/TerraSurvey)
+- Email: joao.sarmento@ufms.br
+- Projeto: [https://github.com/MarioCarvalhoBr/TerraSurvey](https://github.com/MarioCarvalhoBr/TerraSurvey)
 
 ---
 
