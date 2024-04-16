@@ -1,20 +1,62 @@
 <template>
+  <!--
+    Variáveis para usar no i8n $t('message.page_survey_code_xxxx')
+
+    // ---------------------------------------------------------------------------------------------------------------------
+    // PAGE SURVEY CODE
+    // Page Survey Code Labels
+    page_survey_code_label_title: "My Forms",
+    page_survey_code_label_all_forms: "All Forms",
+    page_survey_code_label_active_table: "Active Table",
+    // Page Survey Code Buttons
+    page_survey_code_button_new_form: "New Form",
+    page_survey_code_button_export_csv: ".CSV",
+    page_survey_code_button_export_xlsx: ".XLSX",
+    // Page Survey Code Dialog Titles and Options
+    page_survey_code_dialog_view_form: "View form",
+    page_survey_code_dialog_edit_form: "Edit form",
+    page_survey_code_dialog_copy_form: "Copy form",
+    page_survey_code_dialog_delete_form: "Delete form",
+    page_survey_code_dialog_new_form: "New form",
+    // Page Survey Code Snackbar Messages
+    page_survey_code_snackbar_form_created: "Form created successfully.",
+    page_survey_code_snackbar_form_updated: "Form updated successfully.",
+    page_survey_code_snackbar_form_deleted: "Form deleted successfully.",
+    // Page Survey Code Alert Messages
+    page_survey_code_alert_no_forms_found: "No forms found",
+    page_survey_code_alert_error: "Error",
+    // Page Survey Code Dialog Confirmations
+    page_survey_code_dialog_confirm_delete: "Are you sure you want to delete this form? This action cannot be undone.",
+    page_survey_code_dialog_confirm_copy: "Are you sure you want to copy this form?",
+    page_survey_code_dialog_confirm_edit: "Are you sure you want to edit this form?",
+    // Page Survey Code Snackbar Errors (Template for Errors)
+    page_survey_code_snackbar_error_create: "Failed to create form: {error}",
+    page_survey_code_snackbar_error_update: "Failed to update form: {error}",
+    page_survey_code_snackbar_error_delete: "Failed to delete form: {error}",
+    page_survey_code_snackbar_error_load: "Failed to load forms: {error}",
+    // Miscellaneous
+    page_survey_code_label_search_forms: "Search forms",
+    page_survey_code_menu_options: "OPTIONS",
+    // ---------------------------------------------------------------------------------------------------------------------
+
+  -->
   <div>
-    <h1 class="flex-grow-1">Formulários</h1>
-    <div class="d-flex align-center" style="margin-bottom: 10px;">
-      <h1 class="flex-grow-1"></h1>
-      <v-btn color="primary" size="small" @click="openDialogAddForm" style="margin-right: 10px;">Novo Formulário</v-btn>
-      <v-btn color="error" size="small" @click="exportFileSheet('csv')" style="margin-right: 10px;">.CSV</v-btn>
-      <v-btn color="success" size="small" @click="exportFileSheet('xlsx')">.XLSX</v-btn>
+    <div class="d-flex align-center">
+      <h1 class="flex-grow-1">{{ $t('message.page_survey_code_label_title') }}</h1>
+    </div>
+    <div class="button-container">
+      <v-btn color="primary" size="small" @click="openDialogAddForm">{{ $t('message.page_survey_code_button_new_form') }}</v-btn>
+      <v-btn color="error" size="small" @click="exportFileSheet('csv')">.CSV</v-btn>
+      <v-btn color="success" size="small" @click="exportFileSheet('xlsx')" style="margin-bottom: 10px;">.XLSX</v-btn>
     </div>
 
     <!-- My Components -->
     <my-alert-component ref="myAlert"></my-alert-component>
 
-
     <div class="d-flex align-center">
-      <h2 class="flex-grow-1">Meus formulários</h2>
-      <v-switch v-model="type_switch_active_table" :label="`Mostrar Tabela`" hide-details color="indigo"
+      <h3 class="flex-grow-1">{{ $t('message.page_survey_code_label_all_forms') }}</h3>
+      <v-switch v-model="type_switch_active_table" :label="`${$t('message.page_survey_code_label_active_table')}`"
+       hide-details color="indigo"
         @change="changeDisplayMode"></v-switch>
     </div>
 
@@ -30,8 +72,8 @@
             {{ form.country
             }}</v-card-text>
           <div class="">
-            <v-card-subtitle> Updated: {{ new Date(form.changed).toLocaleDateString("pt-BR") }}</v-card-subtitle>
-            <v-card-subtitle> Created: {{ new Date(form.created).toLocaleDateString("pt-BR") }}</v-card-subtitle>
+            <v-card-subtitle> {{ $t('message.page_surveys_label_updated') }}: {{ new Date(form.changed).toLocaleDateString("pt-BR") }}</v-card-subtitle>
+            <v-card-subtitle> {{ $t('message.page_surveys_label_created') }}: {{ new Date(form.created).toLocaleDateString("pt-BR") }}</v-card-subtitle>
           </div>
           <br>
           <v-divider></v-divider>
@@ -39,6 +81,7 @@
             <v-row justify="center">
               <v-btn size="small" class="ma-2" color="blue-darken-4" icon="mdi-eye"
                 @click="openDialogViewForm(form)"></v-btn>
+
               <v-btn size="small" class="ma-2" color="orange-darken-2" icon="mdi-pencil"
                 @click="openDialogEditForm(form)"></v-btn>
 
@@ -59,7 +102,7 @@
 
         <v-card class="elevation-2" outlined>
           <template v-slot:text>
-            <v-text-field v-model="search" label="Search forms" prepend-inner-icon="mdi-magnify" variant="outlined"
+            <v-text-field v-model="search" :label="`${$t('message.page_survey_code_label_search_forms')}`" prepend-inner-icon="mdi-magnify" variant="outlined"
               hide-details single-line></v-text-field>
           </template>
 
@@ -68,7 +111,7 @@
 
               <!-- Ocultar a coluna 'Form'-->
               <template v-slot:item.data="{ item }">
-                YES
+                {{$t('message.page_survey_code_data_yes')}}
               </template>
 
 
@@ -85,7 +128,7 @@
                   <v-menu>
                     <template v-slot:activator="{ props }">
                       <v-btn size="small" color="primary" v-bind="props">
-                        OPTIONS
+                        {{ $t('message.page_survey_code_menu_options') }}
                       </v-btn>
                     </template>
                     <v-card>
@@ -139,6 +182,8 @@ import { utils, writeFileXLSX } from 'xlsx';
 // Extra libraries
 import 'survey-core/defaultV2.min.css';
 import { Model } from 'survey-core';
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 
 // Components
 import MySnackbarComponent from '../../components/MySnackbarComponent.vue';
@@ -185,7 +230,7 @@ const search = ref('');
 
 // Arrays
 let forms = ref([])
-let data_objects = ref([])
+let data_objects = ref(null)
 const form_to_edit = ref(null)
 const form_to_delete = ref(null)
 // -----------------------------------------------------------------------------
@@ -205,13 +250,13 @@ const openDialogCopyForm = (form) => {
   survey.showProgressBar = 'bottom';
 
   // Create the dialog
-  myDialogSurvey.value.createDialog('Copy form', 'Copy form', 'primary', 'mdi-pencil', survey);
+  myDialogSurvey.value.createDialog(t('message.page_survey_code_dialog_copy_form'), t('message.page_survey_code_dialog_copy_form'), 'primary', 'mdi-pencil', survey);
 }
 // DELETE: Functions and methods to utilize the dialog component
 const openDialogDeleteForm = (form) => {
   console.log('openDialogDeleteForm to form:', JSON.stringify(form, null, 3));
   form_to_delete.value = form;
-  myDialogDelete.value.createDialog('Delete form', `Are you sure you want to delete this form? This action cannot be undone.`, 'error', 'mdi-delete', { confirm: 'Delete', cancel: 'Close' }, { confirm: 'red', cancel: 'black' });
+  myDialogDelete.value.createDialog(t('message.page_survey_code_dialog_delete_form'), t('message.page_survey_code_dialog_confirm_delete'), 'error', 'mdi-delete', { confirm: 'Delete', cancel: 'Close' }, { confirm: 'red', cancel: 'black' });
 }
 const closeDialogDelete = () => {
   console.log('Closed from MyDialogComponent');
@@ -230,7 +275,7 @@ const openDialogAddForm = () => {
   // Edit mode
   is_edit_form_dialog.value = false
 
-  myDialogSurvey.value.createDialog('New form', 'New form', 'primary', 'mdi-plus', survey);
+  myDialogSurvey.value.createDialog(t('message.page_survey_code_dialog_new_form'), t('message.page_survey_code_dialog_new_form'), 'primary', 'mdi-plus', survey);
 }
 const openDialogViewForm = (form) => {
   console.log('View form:', form);
@@ -241,7 +286,7 @@ const openDialogViewForm = (form) => {
   // View mode
   is_edit_form_dialog.value = false
 
-  myDialogSurvey.value.createDialog('View form', 'View form', 'primary', 'mdi-eye', survey);
+  myDialogSurvey.value.createDialog(t('message.page_survey_code_dialog_view_form'), t('message.page_survey_code_dialog_view_form'), 'primary', 'mdi-eye', survey);
 }
 const openDialogEditForm = (form) => {
   console.log('openDialogEditForm to form:', JSON.stringify(form, null, 3));
@@ -257,7 +302,7 @@ const openDialogEditForm = (form) => {
   survey.showProgressBar = 'bottom';
 
   // Create the dialog
-  myDialogSurvey.value.createDialog('Edit form', 'Edit form', 'primary', 'mdi-pencil', survey);
+  myDialogSurvey.value.createDialog(t('message.page_survey_code_dialog_edit_form'), t('message.page_survey_code_dialog_edit_form'), 'primary', 'mdi-pencil', survey);
 }
 const closeDialogSurvey = () => {
   console.log('Closed from MyDialogSurveyComponent');
@@ -282,19 +327,20 @@ const createOrUpdateForm = async (data) => {
       const id = await createFormDB(survey_code_route.value, data);
       idKey = id;
     }
-    let message = `Form ${is_edit_form_dialog.value ? 'updated' : 'created'} successfully.`;
+    let message = is_edit_form_dialog.value ? t('message.page_survey_code_snackbar_form_updated') : t('message.page_survey_code_snackbar_form_created');
     mySnackbar.value.createSnackbar(message, color, 3000);
     console.log(message + `. Got id: ${idKey}`);
 
   } catch (error) {
     let text = ''
     if (is_edit_form_dialog.value) {
-      text = `Failed to update form: ${error}`;
+      text = t('message.page_survey_code_snackbar_error_update', { error: error });
     } else {
-      text = `Failed to create form: ${error}`;
+      text = t('message.page_survey_code_snackbar_error_create', { error: error });
     }
 
-    myAlert.value.createAlert('Error', text, 'error', 'mdi-alert');
+    let color = 'red-darken-4';
+    mySnackbar.value.createSnackbar(text, color, 5000);
     console.log(text);
   }
 }
@@ -302,16 +348,18 @@ const deleteForm = async (form) => {
   console.log('deleteForm:', form);
   try {
     await deleteFormDB(form.value.id);
-    // Rescreva em pt_BR
-    //    let message = `Form deleted successfully.`;
-    let message = `Formulário deletado com sucesso.`;
+    // let message = `Form deleted successfully.`;
+    let message = t('message.page_survey_code_snackbar_form_deleted');
 
     mySnackbar.value.createSnackbar(message, 'red-darken-4', 3000);
     console.log(message + `. Got id: ${form.value.id}`);
-  } catch (error) {
-    let text = `Falha ao deletar formulário: ${error}`;
 
-    myAlert.value.createAlert('Error', text, 'error', 'mdi-alert');
+  } catch (error) {
+    // let text = `Failed to delete form: ${error}`;
+    let text = t('message.page_survey_code_snackbar_error_delete', { error: error });
+
+    let color = 'red-darken-4';
+    mySnackbar.value.createSnackbar(text, color, 5000);
     console.log(text);
   }
 }
@@ -322,8 +370,9 @@ const getAllForms = async (survey_code) => {
 
     // Verifica se o forms está vazio
     if (forms.value.length === 0) {
-      myAlert.value.createAlert('Não foram encontrados formulários', 'Clique no botão "Novo Formulário" para criar um novo formulário', 'info', 'mdi-information');
-      
+      myAlert.value.createAlert(t('message.page_survey_code_alert_no_forms_found'), t('message.page_survey_code_alert_click_new_survey'), 'info', 'mdi-information');
+      data_objects.value = [];
+
     } else {
       myAlert.value.alert.show = false;
 
@@ -376,9 +425,10 @@ const getAllForms = async (survey_code) => {
 
     console.log(`Loaded ${forms.value.length} forms`);
   } catch (error) {
-    let text = `Falha ao carregar formulários: ${error}`;
+    let text = t('message.page_survey_code_snackbar_error_load', { error: error });
 
-    myAlert.value.createAlert('Error', text, 'error', 'mdi-alert');
+    let color = 'red-darken-4';
+    mySnackbar.value.createSnackbar(text, color, 5000);
     console.log(text);
   }
 }
@@ -397,7 +447,7 @@ const verifySurveyByCode = async (code) => {
       console.log('Survey found');
     }
   } catch (error) {
-    let text = `Failed to load survey: ${error}`;
+    let text = t('message.page_survey_code_snackbar_error_load', { error: error });
     console.log(text);
     router.push('/');
   }
@@ -414,6 +464,7 @@ onMounted(async () => {
 })
 onUpdated(() => {
   console.log('onUpdated');
+  getAllForms(survey_code_route.value);
 })
 // -----------------------------------------------------------------------------
 
@@ -443,17 +494,17 @@ const exportCSV = (data_objects_export, type) => {
 }
 
 const exporXLSX = (data_objects_export, type) => {
-    // Convert to XLSX or XLS
-    const ws = utils.json_to_sheet(data_objects_export);
-    /* create workbook and append worksheet */
-    const wb = utils.book_new();
-    utils.book_append_sheet(wb, ws, "Data");
-    /* export to XLSX or XLS*/
-    if (type === 'xls') {
-      writeFileXLSX(wb,"Forms survey " + survey_search.value[0].data.name + "." + type);
-    } else {
-      writeFileXLSX(wb,"Forms survey " + survey_search.value[0].data.name + "." + type);
-    }
+  // Convert to XLSX or XLS
+  const ws = utils.json_to_sheet(data_objects_export);
+  /* create workbook and append worksheet */
+  const wb = utils.book_new();
+  utils.book_append_sheet(wb, ws, "Data");
+  /* export to XLSX or XLS*/
+  if (type === 'xls') {
+    writeFileXLSX(wb, "Forms survey " + survey_search.value[0].data.name + "." + type);
+  } else {
+    writeFileXLSX(wb, "Forms survey " + survey_search.value[0].data.name + "." + type);
+  }
 }
 
 
@@ -478,7 +529,7 @@ const exportFileSheet = (type) => {
     exporXLSX(data_objects_export, type);
   } else if (type === 'csv') {
     exportCSV(data_objects_export, type);
-  }else{
+  } else {
     exporXLSX(data_objects_export, 'xlsx');
   }
 }

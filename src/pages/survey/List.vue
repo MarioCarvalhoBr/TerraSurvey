@@ -1,8 +1,11 @@
 <template>
   <div>
+
     <div class="d-flex align-center">
-      <h1 class="flex-grow-1">Minhas Pesquisas</h1>
-      <v-btn color="primary" size="small" @click="openDialogAddSurvey">Nova Pesquisa</v-btn>
+      <h1 class="flex-grow-1">{{ $t('message.page_surveys_label_my_surveys') }}</h1>
+    </div>
+    <div class="button-container">
+      <v-btn color="primary" size="small" @click="openDialogAddSurvey" style="margin-bottom: 10px;">{{ $t('message.page_surveys_button_new_survey') }}</v-btn>
     </div>
 
     <!-- My Components -->
@@ -13,10 +16,10 @@
         <v-card class="elevation-8" color="indigo-darken-4" dark>
           <v-card-title>{{ survey.data.name }}</v-card-title>
           <v-card-subtitle>{{ survey.data.description }}</v-card-subtitle>
-          <v-card-text>{{ survey.data.city }}, {{ survey.data.state }}, {{ survey.data.country}}</v-card-text>
+          <v-card-text>{{ survey.data.city }}, {{ survey.data.state }}, {{ survey.data.country }}</v-card-text>
           <div class="">
-            <v-card-subtitle> Criado em: {{ new Date(survey.changed).toLocaleDateString("pt-BR") }}</v-card-subtitle>
-            <v-card-subtitle> Modificado em: {{ new Date(survey.created).toLocaleDateString("pt-BR") }}</v-card-subtitle>
+            <v-card-subtitle>{{ $t('message.page_surveys_label_updated') }}: {{ new Date(survey.changed).toLocaleDateString("pt-BR") }}</v-card-subtitle>
+            <v-card-subtitle>{{ $t('message.page_surveys_label_created') }}: {{ new Date(survey.created).toLocaleDateString("pt-BR") }}</v-card-subtitle>
           </div>
           <br>
           <v-divider></v-divider>
@@ -45,7 +48,6 @@
     <my-dialog-survey-component ref="myDialogSurvey" @close="closeDialogSurvey"></my-dialog-survey-component>
 
   </div>
-
 </template>
 
 <script setup>
@@ -55,6 +57,8 @@ import { ref, onMounted, defineComponent, onUpdated } from 'vue';
 // Extra libraries
 import 'survey-core/defaultV2.min.css';
 import { Model } from 'survey-core';
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 
 // Components
 import MySnackbarComponent from '../../components/MySnackbarComponent.vue';
@@ -85,7 +89,6 @@ const mySnackbar = ref(defineComponent(MySnackbarComponent));
 const myAlert = ref(defineComponent(MyAlertComponent));
 const myDialogDelete = ref(defineComponent(MyDialogComponent));
 const myDialogArchive = ref(defineComponent(MyDialogComponent));
-
 const myDialogSurvey = ref(defineComponent(MyDialogSurveyComponent));
 
 // VARS
@@ -103,7 +106,7 @@ const survey_to_delete = ref(null)
 const openDialogDeleteSurvey = (survey) => {
   console.log('openDialogDeleteSurvey to survey:', JSON.stringify(survey, null, 3));
   survey_to_delete.value = survey;
-  myDialogDelete.value.createDialog('Deletar pesquisa', `Tem certeza de que deseja deletar esta pesquisa? Esta ação não pode ser desfeita.`, 'error', 'mdi-delete', { confirm: 'Deletar', cancel: 'Fechar' }, { confirm: 'red', cancel: 'grey' });
+  myDialogDelete.value.createDialog(t('message.page_surveys_dialog_title_delete_survey'), t('message.page_surveys_dialog_message_delete_survey'), 'error', 'mdi-delete', { confirm: t('message.page_surveys_button_delete'), cancel: t('message.page_surveys_button_close') }, { confirm: 'red', cancel: 'grey' });
 }
 const closeDialogDelete = () => {
   console.log('Closed from MyDialogComponent');
@@ -119,7 +122,7 @@ const confirmDialogDelete = () => {
 const openDialogArchiveSurvey = (survey) => {
   console.log('openDialogArchiveSurvey to survey:', JSON.stringify(survey, null, 3));
   survey_to_delete.value = survey;
-  myDialogArchive.value.createDialog('Arquivar pesquisa', `Tem certeza de que deseja arquivar esta pesquisa? Esta ação pode ser desfeita no menu 'Arquivadas'.`, 'warning', 'mdi-archive', { confirm: 'Arquivar', cancel: 'Fechar' }, { confirm: 'orange', cancel: 'grey' });
+  myDialogArchive.value.createDialog(t('message.page_surveys_dialog_title_archive_survey'), t('message.page_surveys_dialog_message_archive_survey'), 'warning', 'mdi-archive', { confirm: t('message.page_surveys_button_archive'), cancel: t('message.page_surveys_button_close') }, { confirm: 'orange', cancel: 'grey' });
 }
 const closeDialogArchive = () => {
   console.log('Closed from MyDialogComponent');
@@ -140,7 +143,7 @@ const openDialogAddSurvey = () => {
   // Edit mode
   is_edit_survey_dialog.value = false
 
-  myDialogSurvey.value.createDialog('Nova pesquisa', 'Crie uma nova pesquisa', 'primary', 'mdi-plus', surveyModel);
+  myDialogSurvey.value.createDialog(t('message.page_surveys_button_new_survey'), t('message.page_surveys_button_new_survey'), 'primary', 'mdi-plus', surveyModel);
 }
 /*
 const openDialogViewSurvey = (survey) => {
@@ -169,7 +172,7 @@ const openDialogEditSurvey = (survey) => {
   surveyModel.showProgressBar = 'bottom';
 
   // Create the dialog
-  myDialogSurvey.value.createDialog('Editar pesquisa', 'Edite a pesquisa', 'primary', 'mdi-pencil', surveyModel);
+  myDialogSurvey.value.createDialog(t('message.page_surveys_button_edit_survey'), t('message.page_surveys_button_edit_survey'), 'primary', 'mdi-pencil', surveyModel);
 }
 const closeDialogSurvey = () => {
   console.log('Closed from MyDialogSurveyComponent');
@@ -195,42 +198,45 @@ const createOrUpdateSurvey = async (data) => {
       const id = await createSurveyDB(data);
       idKey = id;
     }
-    let message = `Pesquisa ${is_edit_survey_dialog.value ? 'atualizada' : 'criada'} com sucesso.`;
+    let message = is_edit_survey_dialog.value ? t('message.page_surveys_snackbar_survey_updated') : t('message.page_surveys_snackbar_survey_created');
 
     mySnackbar.value.createSnackbar(message, color, 3000);
     console.log(message + ` Got id ${idKey}. Survey: ${JSON.stringify(data, null, 3)}`);
 
   } catch (error) {
-    let text = `Falha ao adicionar a pesquisa: ${error}.`;
-
-    myAlert.value.createAlert('Erro', text, 'error', 'mdi-alert');
+    let text = is_edit_survey_dialog.value ? t('message.page_surveys_alert_update_survey_error', { error: error }) : t('message.page_surveys_alert_create_survey_error', { error: error });
+    let color = 'red-darken-4';
+    mySnackbar.value.createSnackbar(text, color, 5000);
     console.log(text);
   }
 }
 const deleteSurvey = async (survey) => {
   try {
     await deleteSurveyDB(survey.value);
-    let message = `Pesquisa deletada com sucesso.`;
+    let message = t('message.page_surveys_snackbar_survey_deleted');
 
     mySnackbar.value.createSnackbar(message, 'red-darken-4', 3000);
     console.log(message + ` Got id ${survey.value.id}. Survey: ${JSON.stringify(survey, null, 3)}`);
   } catch (error) {
-    let text = `Falha ao deletar a pesquisa: ${error}.`;
+    let text = t('message.page_surveys_alert_delete_survey_error', { error: error });
 
-    myAlert.value.createAlert('Erro', text, 'error', 'mdi-alert');
+    let color = 'red-darken-4';
+    mySnackbar.value.createSnackbar(text, color, 5000);
     console.log(text + ` Got id ${survey.value.id}. Survey: ${JSON.stringify(survey, null, 3)}`);
   }
 }
 const moveSurveyToArchive = async (survey) => {
   try {
     await setInactiveSurveyDB(survey.value.id);
-    let message = `Pesquisa movida para o arquivo com sucesso.`;
+    let message = t('message.page_surveys_snackbar_survey_archived');
     mySnackbar.value.createSnackbar(message, 'orange-darken-4', 3000);
+
     console.log(message + ` Got id ${survey.value.id}. Survey: ${JSON.stringify(survey, null, 3)}`);
   } catch (error) {
-    let text = `Falha ao mover para o arquivo a pesquisa: ${error}.`;
+    let text = t('message.page_surveys_alert_archive_survey_error', { error: error });
 
-    myAlert.value.createAlert('Erro', text, 'error', 'mdi-alert');
+    let color = 'red-darken-4';
+    mySnackbar.value.createSnackbar(text, color, 5000);
     console.log(text + ` Got id ${survey.value.id}. Survey: ${JSON.stringify(survey, null, 3)}`);
   }
 }
@@ -241,16 +247,18 @@ const getAllSurveys = async (survey_code) => {
 
     // Verifica se o surveys está vazio
     if (surveys.value.length === 0) {
-    myAlert.value.createAlert('Nenhuma pesquisa encontrada', 'Clique no botão "Nova Pesquisa" para criar uma nova pesquisa', 'info', 'mdi-information');
+      myAlert.value.createAlert(t('message.page_surveys_alert_no_surveys_found'), t('message.page_surveys_alert_click_new_survey'), 'info', 'mdi-information');
     }else{
       myAlert.value.alert.show = false;
     }
 
     console.log(`Loaded ${surveys.value.length} surveys`);
   } catch (error) {
-    let text = `Falha ao carregar pesquisas: ${error}`;
 
-    myAlert.value.createAlert('Erro', text, 'error', 'mdi-alert');
+    let text = t('message.page_surveys_alert_load_surveys_error', { error: error });
+
+    let color = 'red-darken-4';
+    mySnackbar.value.createSnackbar(text, color, 5000);
     console.log(text);
   }
 }
@@ -264,6 +272,8 @@ onMounted(async () => {
 })
 onUpdated(() => {
   console.log('onUpdated');
+  getAllSurveys();
+
 })
 // -----------------------------------------------------------------------------
 

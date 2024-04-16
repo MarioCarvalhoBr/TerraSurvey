@@ -3,9 +3,9 @@
     <v-responsive class="align-center text-center fill-height">
       <v-img height="150" src="@/assets/logo.svg" />
 
-      <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
+      <div class="text-body-2 font-weight-light mb-n1">{{$t('message.page_home_label_wellcome')}}</div>
 
-      <h1 class="text-h2 font-weight-bold">TerraSurvey</h1>
+      <h1 class="text-h2 font-weight-bold">{{$t('message.app_name')}}</h1>
 
       <div class="py-14" />
 
@@ -15,7 +15,7 @@
             variant="text">
             <v-icon icon="mdi-view-dashboard" size="large" start />
 
-            HOME
+            {{ $t('message.menu_drawer_label_home') }}
           </v-btn>
         </v-col>
 
@@ -24,7 +24,7 @@
             size="x-large" target="_blank" variant="flat">
             <v-icon icon="mdi-book-open-variant" size="large" start />
 
-            My Surveys
+            {{ $t('message.menu_drawer_label_surveys') }}
           </v-btn>
         </v-col>
 
@@ -33,7 +33,7 @@
             variant="text">
             <v-icon icon="mdi-information" size="large" start />
 
-            About
+            {{ $t('message.menu_drawer_label_about') }}
           </v-btn>
 
         </v-col>
@@ -42,35 +42,33 @@
 
       <v-btn @click="screenButtonInstall" color="error" size="small" v-if="pwaMode === 'browser' && !dialog">
         <v-icon right>mdi-download</v-icon>
-        Install APP NOW
+        {{ $t('message.page_home_button_install_app_now') }}
       </v-btn>
       <br>
       <br>
       <v-btn @click="() => $router.go()" color="warning" size="small">
         <v-icon right>mdi-reload</v-icon>
-        Reload
+        {{ $t('message.page_home_button_reload') }}
       </v-btn>
 
       <div class="text-center pa-4">
 
         <v-dialog v-model="dialog" max-width="400" persistent>
+          <v-card prepend-icon="mdi-download" :text="$t('message.page_home_dialog_text_install_app_now')" :title="$t('message.page_home_dialog__title_install_app_now')">
 
-
-          <v-card prepend-icon="mdi-download" text="You can install this app on your device." title="Install app?">
             <template v-slot:actions>
               <v-spacer></v-spacer>
 
               <v-btn @click="dontOpenAgain" color="error">
-                Don't show again
+                {{ $t('message.page_home_dialog_button_dont_show_again') }}
               </v-btn>
 
-
               <v-btn @click="hideInstallPromotion" color="secundary">
-                Close
+                {{ $t('message.page_home_dialog_button_close') }}
               </v-btn>
 
               <v-btn @click="buttonInstall" color="primary">
-                Install
+                {{ $t('message.page_home_dialog_button_install') }}
               </v-btn>
 
             </template>
@@ -87,6 +85,10 @@
 <script setup>
 import { ref, onMounted, defineComponent } from 'vue';
 import MySnackbarComponent from '../components/MySnackbarComponent.vue';
+
+// Import t
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 
 const mySnackbar = ref(defineComponent(MySnackbarComponent));
 const dialog = ref(false);
@@ -126,7 +128,7 @@ const dontOpenAgain = () => {
 const buttonInstall = async () => {
   hideInstallPromotion();
   if (!deferredPrompt) {
-    mySnackbar.value.createSnackbar('Please click on Reload button', 'info', 5000);
+    mySnackbar.value.createSnackbar(t('message.page_home_snackbar_text_click_on_reload_button'), 'info', 5000);
     return;
   }
 

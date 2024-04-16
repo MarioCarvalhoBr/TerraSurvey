@@ -8,3 +8,12 @@
 // @use 'vuetify/settings' with (
 //   $color-pack: false
 // );
+
+// Class to be used in the main container of the application
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinha os botões à direita */
+    gap: 10px;
+    /* Distância entre os botões */
+  }
