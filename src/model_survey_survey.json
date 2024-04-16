@@ -1,7 +1,7 @@
 {
     "locale": "en",
     "completedHtml": {
-      "default": "<h5>Resposta Registrada</h5><p></p>"
+      "default": "Resposta registrada"
     },
     "pages": [
       {

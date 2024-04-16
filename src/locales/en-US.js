@@ -10,7 +10,7 @@ export default {
     my_surveyjs_page_prev_text: "Previous",
     my_surveyjs_page_next_text: "Next",
     my_surveyjs_complete_text: "Save",
-    my_surveyjs_response_default: "<h5>Response Registered</h5><p></p>",
+    my_surveyjs_response_default: "Response registered",
 
     // MY COMPONENTS
     my_components_dialog_label_required_field: '* Indicates required field',

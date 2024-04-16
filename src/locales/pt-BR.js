@@ -10,7 +10,7 @@ export default {
     my_surveyjs_page_prev_text: "Anterior",
     my_surveyjs_page_next_text: "Próximo",
     my_surveyjs_complete_text: "Salvar",
-    my_surveyjs_response_default: "<h5>Resposta Registrada</h5><p></p>",
+    my_surveyjs_response_default: "Resposta registrada",
 
     // MY COMPONENTS
     my_components_dialog_label_required_field: '* Indica campo obrigatório',
