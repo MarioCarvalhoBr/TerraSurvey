@@ -162,6 +162,7 @@ export default {
     page_about_value_authors: ['João Batista Sarmento dos Santos Neto', 'José Marcato Junior', 'Mário de Araújo Carvalho', 'Wesley Nunes Gonçalves', 'Kassia Tonheiro Rodrigues', 'Carolina Lino Martins P. de Camargo', 'Nadya Kalache', 'Janusa Soares de Araújo', 'Mauricio de Souza', 'Hudson Silva Borges', 'Saulo Gomes Moreira', 'Marcio Santos Araújo', 'Heber Xavier'],
     page_about_label_contact_email: 'Contact e-mail',
     page_about_value_contact_email: "joao.sarmento{'@'}ufms.br",
+    page_about_label_support: 'Partners',
     // ---------------------------------------------------------------------------------------------------------------------
 
     // ---------------------------------------------------------------------------------------------------------------------

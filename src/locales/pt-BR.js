@@ -148,6 +148,7 @@ export default {
     page_about_link_license: 'https://github.com/MarioCarvalhoBr/TerraSurvey/blob/main/LICENSE',
     page_about_text_license: 'Todos os direitos reservados 2023-' + new Date().getFullYear() + '. {app_name}© é um software gratuito. Você pode usá-lo para fins não comerciais. Dúvidas sobre o uso do software, entre em contato com o coordenador do projeto. Consulte a Licença em: ',
     page_about_label_authors: 'Autores',
+    page_about_label_support: 'Apoio',
 
     page_about_value_authors: ['João Batista Sarmento dos Santos Neto', 'José Marcato Junior', 'Mário de Araújo Carvalho', 'Wesley Nunes Gonçalves', 'Kassia Tonheiro Rodrigues', 'Carolina Lino Martins P. de Camargo', 'Nadya Kalache', 'Janusa Soares de Araújo', 'Mauricio de Souza', 'Hudson Silva Borges', 'Saulo Gomes Moreira', 'Marcio Santos Araújo', 'Heber Xavier'],
     page_about_label_contact_email: 'Entre em contato com o coordenador do projeto',

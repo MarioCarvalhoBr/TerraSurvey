@@ -1,45 +1,4 @@
 <template>
-  <!--
-    Variáveis para usar no i8n $t('message.page_survey_code_xxxx')
-
-    // ---------------------------------------------------------------------------------------------------------------------
-    // PAGE SURVEY CODE
-    // Page Survey Code Labels
-    page_survey_code_label_title: "My Forms",
-    page_survey_code_label_all_forms: "All Forms",
-    page_survey_code_label_active_table: "Active Table",
-    // Page Survey Code Buttons
-    page_survey_code_button_new_form: "New Form",
-    page_survey_code_button_export_csv: ".CSV",
-    page_survey_code_button_export_xlsx: ".XLSX",
-    // Page Survey Code Dialog Titles and Options
-    page_survey_code_dialog_view_form: "View form",
-    page_survey_code_dialog_edit_form: "Edit form",
-    page_survey_code_dialog_copy_form: "Copy form",
-    page_survey_code_dialog_delete_form: "Delete form",
-    page_survey_code_dialog_new_form: "New form",
-    // Page Survey Code Snackbar Messages
-    page_survey_code_snackbar_form_created: "Form created successfully.",
-    page_survey_code_snackbar_form_updated: "Form updated successfully.",
-    page_survey_code_snackbar_form_deleted: "Form deleted successfully.",
-    // Page Survey Code Alert Messages
-    page_survey_code_alert_no_forms_found: "No forms found",
-    page_survey_code_alert_error: "Error",
-    // Page Survey Code Dialog Confirmations
-    page_survey_code_dialog_confirm_delete: "Are you sure you want to delete this form? This action cannot be undone.",
-    page_survey_code_dialog_confirm_copy: "Are you sure you want to copy this form?",
-    page_survey_code_dialog_confirm_edit: "Are you sure you want to edit this form?",
-    // Page Survey Code Snackbar Errors (Template for Errors)
-    page_survey_code_snackbar_error_create: "Failed to create form: {error}",
-    page_survey_code_snackbar_error_update: "Failed to update form: {error}",
-    page_survey_code_snackbar_error_delete: "Failed to delete form: {error}",
-    page_survey_code_snackbar_error_load: "Failed to load forms: {error}",
-    // Miscellaneous
-    page_survey_code_label_search_forms: "Search forms",
-    page_survey_code_menu_options: "OPTIONS",
-    // ---------------------------------------------------------------------------------------------------------------------
-
-  -->
   <div>
     <div class="d-flex align-center">
       <h1 class="flex-grow-1">{{ $t('message.page_survey_code_label_title') }}</h1>
