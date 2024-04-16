@@ -1,5 +1,4 @@
 TO DO:
-Colocar logo da UFMS e INCRA
 Informações
 
     1. Nome do Projeto de Assentamento
@@ -7,6 +6,7 @@ Informações
     3. Cidade
     4. Estado
 
+DONE - Colocar logo da UFMS e INCRA
 DONE - Nome do App: TerraSurvey
 DONE - Sobre: TerraSurvey é um sistema que tem o objetivo apoiar a coleta de dados e informações com perspectivas de avaliar os impactos produzidos pela regularização fundiária dos projetos de assentamento federais do Programa Nacional de Reforma Agrária – PNRA. O sistema foi desenvolvido como parte de estudos realizados em parceria entre a Universidade Federal de Mato Grosso do Sul (UFMS) e o Instituto Nacional de Colonização e Reforma Argária (INCRA). 
 

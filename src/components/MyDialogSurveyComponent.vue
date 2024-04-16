@@ -10,7 +10,9 @@
             </v-col>
           </v-row>
 
-          <small class="text-caption text-medium-emphasis">*indicates required field</small>
+          <small class="text-caption text-medium-emphasis">{{ 
+          $t('message.my_components_dialog_label_required_field') 
+          }}</small>
         </v-card-text>
         <v-divider></v-divider>
 
@@ -19,7 +21,7 @@
 
           <v-btn class="text-white flex-grow-1 text-none" color="grey-darken-4" rounded="0" variant="flat"
             @click="closeDialog">
-            Close
+            {{ $t('message.page_surveys_button_close') }}
           </v-btn>
           <br>
 

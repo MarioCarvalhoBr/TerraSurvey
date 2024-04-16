@@ -14,9 +14,9 @@
     <v-row>
       <v-col v-for="survey in surveys" :key="survey.id" cols="12" md="6" lg="3">
         <v-card class="elevation-8" color="indigo-darken-4" dark>
-          <v-card-title>{{ survey.data.name }}</v-card-title>
-          <v-card-subtitle>{{ survey.data.description }}</v-card-subtitle>
-          <v-card-text>{{ survey.data.city }}, {{ survey.data.state }}, {{ survey.data.country }}</v-card-text>
+          <v-card-title>{{ survey.data.nome_projeto_assentamento }}</v-card-title>
+          <v-card-subtitle>{{ survey.data.descricao_pesquisa }}</v-card-subtitle>
+          <v-card-text>{{ survey.data.cidade }}, {{ survey.data.estado }}, {{ survey.data.pais }}</v-card-text>
           <div class="">
             <v-card-subtitle>{{ $t('message.page_surveys_label_updated') }}: {{ new Date(survey.changed).toLocaleDateString("pt-BR") }}</v-card-subtitle>
             <v-card-subtitle>{{ $t('message.page_surveys_label_created') }}: {{ new Date(survey.created).toLocaleDateString("pt-BR") }}</v-card-subtitle>
@@ -79,6 +79,12 @@ const onCompleteSurveyResults = (sender) => {
 }
 // Model SurveyJS
 const surveyModel = new Model(surveyJson);
+
+surveyModel.pagePrevText = t('message.my_surveyjs_page_prev_text');
+surveyModel.pageNextText = t('message.my_surveyjs_page_next_text');
+surveyModel.completeText = t('message.my_surveyjs_complete_text');
+surveyModel.completedHtml = t('message.my_surveyjs_response_default');
+// surveyModel.showCompletedPage = false;
 surveyModel.onComplete.add(onCompleteSurveyResults);
 // -----------------------------------------------------------------------------
 
@@ -140,6 +146,14 @@ const openDialogAddSurvey = () => {
   surveyModel.mode = 'edit';
   // Desativar a paginação
   surveyModel.showProgressBar = 'none';
+  
+  // Setup SurveyJS label texts
+  surveyModel.pagePrevText = t('message.my_surveyjs_page_prev_text');
+  surveyModel.pageNextText = t('message.my_surveyjs_page_next_text');
+  surveyModel.completeText = t('message.my_surveyjs_complete_text');
+  surveyModel.completedHtml = t('message.my_surveyjs_response_default');
+
+// surveyModel.showCompletedPage = false;
   // Edit mode
   is_edit_survey_dialog.value = false
 
@@ -170,6 +184,13 @@ const openDialogEditSurvey = (survey) => {
   surveyModel.data = survey.data;
   surveyModel.mode = 'edit';
   surveyModel.showProgressBar = 'bottom';
+
+   
+  // Setup SurveyJS label texts
+  surveyModel.pagePrevText = t('message.my_surveyjs_page_prev_text');
+  surveyModel.pageNextText = t('message.my_surveyjs_page_next_text');
+  surveyModel.completeText = t('message.my_surveyjs_complete_text');
+  surveyModel.completedHtml = t('message.my_surveyjs_response_default');
 
   // Create the dialog
   myDialogSurvey.value.createDialog(t('message.page_surveys_button_edit_survey'), t('message.page_surveys_button_edit_survey'), 'primary', 'mdi-pencil', surveyModel);

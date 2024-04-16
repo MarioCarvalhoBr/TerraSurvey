@@ -6,6 +6,15 @@ export default {
     app_value_version: '1.0.0',
     app_text_copyrigth: 'All rights reserved 2023-'+ new Date().getFullYear() + '. {app_name}©.',
 
+    // MY SURVEYJS
+    my_surveyjs_page_prev_text: "Previous",
+    my_surveyjs_page_next_text: "Next",
+    my_surveyjs_complete_text: "Save",
+    my_surveyjs_response_default: "<h5>Response Registered</h5><p></p>",
+
+    // MY COMPONENTS
+    my_components_dialog_label_required_field: '* Indicates required field',
+
     // ---------------------------------------------------------------------------------------------------------------------
     // PAGE SURVEY CODE
     // Page Survey Code Labels

@@ -208,6 +208,13 @@ const openDialogCopyForm = (form) => {
   survey.mode = 'edit';
   survey.showProgressBar = 'bottom';
 
+   
+  // Setup SurveyJS label texts
+  survey.pagePrevText = t('message.my_surveyjs_page_prev_text');
+  survey.pageNextText = t('message.my_surveyjs_page_next_text');
+  survey.completeText = t('message.my_surveyjs_complete_text');
+  survey.completedHtml = t('message.my_surveyjs_response_default');
+
   // Create the dialog
   myDialogSurvey.value.createDialog(t('message.page_survey_code_dialog_copy_form'), t('message.page_survey_code_dialog_copy_form'), 'primary', 'mdi-pencil', survey);
 }
@@ -234,6 +241,12 @@ const openDialogAddForm = () => {
   // Edit mode
   is_edit_form_dialog.value = false
 
+  // Setup SurveyJS label texts
+  survey.pagePrevText = t('message.my_surveyjs_page_prev_text');
+  survey.pageNextText = t('message.my_surveyjs_page_next_text');
+  survey.completeText = t('message.my_surveyjs_complete_text');
+  survey.completedHtml = t('message.my_surveyjs_response_default');
+
   myDialogSurvey.value.createDialog(t('message.page_survey_code_dialog_new_form'), t('message.page_survey_code_dialog_new_form'), 'primary', 'mdi-plus', survey);
 }
 const openDialogViewForm = (form) => {
@@ -244,6 +257,12 @@ const openDialogViewForm = (form) => {
   survey.mode = 'display';
   // View mode
   is_edit_form_dialog.value = false
+
+  // Setup SurveyJS label texts
+  survey.pagePrevText = t('message.my_surveyjs_page_prev_text');
+  survey.pageNextText = t('message.my_surveyjs_page_next_text');
+  survey.completeText = t('message.my_surveyjs_complete_text');
+  survey.completedHtml = t('message.my_surveyjs_response_default');
 
   myDialogSurvey.value.createDialog(t('message.page_survey_code_dialog_view_form'), t('message.page_survey_code_dialog_view_form'), 'primary', 'mdi-eye', survey);
 }
@@ -259,6 +278,12 @@ const openDialogEditForm = (form) => {
   survey.data = form.data;
   survey.mode = 'edit';
   survey.showProgressBar = 'bottom';
+
+  // Setup SurveyJS label texts
+  survey.pagePrevText = t('message.my_surveyjs_page_prev_text');
+  survey.pageNextText = t('message.my_surveyjs_page_next_text');
+  survey.completeText = t('message.my_surveyjs_complete_text');
+  survey.completedHtml = t('message.my_surveyjs_response_default');
 
   // Create the dialog
   myDialogSurvey.value.createDialog(t('message.page_survey_code_dialog_edit_form'), t('message.page_survey_code_dialog_edit_form'), 'primary', 'mdi-pencil', survey);
