@@ -3,7 +3,7 @@ export default {
     // App strings
     app_name: 'TerraSurvey',
     app_label_version: 'Versão',
-    app_value_version: '1.0.0',
+    app_value_version: '1.0.3',
     app_text_copyrigth: 'Todos os direitos reservados 2023-' + new Date().getFullYear() + '. {app_name}©.',
 
     // MY SURVEYJS
