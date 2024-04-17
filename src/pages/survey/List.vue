@@ -146,7 +146,7 @@ const openDialogAddSurvey = () => {
   surveyModel.mode = 'edit';
   // Desativar a paginação
   surveyModel.showProgressBar = 'none';
-  
+
   // Setup SurveyJS label texts
   surveyModel.pagePrevText = t('message.my_surveyjs_page_prev_text');
   surveyModel.pageNextText = t('message.my_surveyjs_page_next_text');
@@ -156,8 +156,8 @@ const openDialogAddSurvey = () => {
 // surveyModel.showCompletedPage = false;
   // Edit mode
   is_edit_survey_dialog.value = false
-
-  myDialogSurvey.value.createDialog(t('message.page_surveys_button_new_survey'), t('message.page_surveys_button_new_survey'), 'primary', 'mdi-plus', surveyModel);
+  let icon = 'mdi mdi-list-box-outline';
+  myDialogSurvey.value.createDialog(t('message.page_surveys_button_new_survey'), t('message.page_surveys_button_new_survey'), 'primary', icon, surveyModel);
 }
 /*
 const openDialogViewSurvey = (survey) => {
@@ -185,7 +185,7 @@ const openDialogEditSurvey = (survey) => {
   surveyModel.mode = 'edit';
   surveyModel.showProgressBar = 'bottom';
 
-   
+
   // Setup SurveyJS label texts
   surveyModel.pagePrevText = t('message.my_surveyjs_page_prev_text');
   surveyModel.pageNextText = t('message.my_surveyjs_page_next_text');

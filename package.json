@@ -1,7 +1,7 @@
 {
   "name": "TerraSurvey",
-  "version": "1.0.3",
-  "description": "A Vite + Vue 3 project",
+  "version": "1.0.5",
+  "description": "Projeto coleta de dados de assentamentos",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

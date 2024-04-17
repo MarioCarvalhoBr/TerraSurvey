@@ -94,11 +94,11 @@
             </h3>
             <div class="button-container-center">
               <div class="ma-1">
-                <v-img :aspect-ratio="1" src="@/assets/logo-incra.png" width="150"></v-img>
+                <v-img :aspect-ratio="1" src="@/assets/logo-incra.png" height="150" width="150"></v-img>
               </div>
 
               <div class="ma-1">
-                <v-img :aspect-ratio="1" src="@/assets/logo-ufms.png" width="150"></v-img>
+                <v-img :aspect-ratio="1" src="@/assets/logo-ufms.png" height="100" width="100"></v-img>
               </div>
             </div>
           </v-list-item>

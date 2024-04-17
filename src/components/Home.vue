@@ -5,7 +5,7 @@
 
       <div class="text-body-2 font-weight-light mb-n1">{{$t('message.page_home_label_wellcome')}}</div>
 
-      <h1 class="text-h2 font-weight-bold">{{$t('message.app_name')}}</h1>
+      <h1 class="text-h4 font-weight-bold">{{$t('message.app_name')}}</h1>
 
       <div class="py-14" />
 

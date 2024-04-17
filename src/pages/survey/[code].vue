@@ -5,7 +5,7 @@
     </div>
     <div class="button-container">
       <v-btn color="primary" size="small" @click="openDialogAddForm">{{ $t('message.page_survey_code_button_new_form') }}</v-btn>
-      <v-btn color="error" size="small" @click="exportFileSheet('csv')">.CSV</v-btn>
+      <!-- <v-btn color="error" size="small" @click="exportFileSheet('csv')">.CSV</v-btn> -->
       <v-btn color="success" size="small" @click="exportFileSheet('xlsx')" style="margin-bottom: 10px;">.XLSX</v-btn>
     </div>
 
@@ -69,7 +69,7 @@
             <v-data-table :items="data_objects" :search="search" :items-per-page="5" class="elevation-1">
 
               <!-- Ocultar a coluna 'Form'-->
-              <template v-slot:item.data="{ item }">
+              <template v-slot:item.data="{ }">
                 {{$t('message.page_survey_code_data_yes')}}
               </template>
 
@@ -189,7 +189,7 @@ const search = ref('');
 
 // Arrays
 let forms = ref([])
-let data_objects = ref(null)
+let data_objects = ref([])
 const form_to_edit = ref(null)
 const form_to_delete = ref(null)
 // -----------------------------------------------------------------------------
@@ -208,7 +208,7 @@ const openDialogCopyForm = (form) => {
   survey.mode = 'edit';
   survey.showProgressBar = 'bottom';
 
-   
+
   // Setup SurveyJS label texts
   survey.pagePrevText = t('message.my_surveyjs_page_prev_text');
   survey.pageNextText = t('message.my_surveyjs_page_next_text');
@@ -298,6 +298,7 @@ const closeDialogSurvey = () => {
 // FORM DAO OPERATIONS
 // -----------------------------------------------------------------------------
 const createOrUpdateForm = async (data) => {
+console.log('createOrUpdateForm:', JSON.stringify(data, null, 3));
   try {
     let color = 'green';
     let idKey = 0;
@@ -368,21 +369,47 @@ const getAllForms = async (survey_code) => {
           actions: true,
 
           // --->> YOUR DATA HERE <---
-          // Info
-          first_name: form.data.first_name,
-          last_name: form.data.last_name,
-          age_range: form.data.age_range,
+          // Adicione todas as variáveis acima
+          idade: form.data.idade,
+          numero_membros: form.data.numero_membros,
+          tempo_residencia: form.data.tempo_residencia,
+          condicao_posse: form.data.condicao_posse,
+          escolaridade: form.data.escolaridade,
+          mao_de_obra: form.data.mao_de_obra,
+          local_moradia: form.data.local_moradia,
+          propriedade_moradia: form.data.propriedade_moradia,
+          renda_agropecuaria: form.data.renda_agropecuaria,
+          estagio_documentacao: form.data.estagio_documentacao,
+          atividades_agropecuarias: form.data.atividades_agropecuarias,
+          atividades_nao_agropecuarias: form.data.atividades_nao_agropecuarias,
+          associacao_produtor_rural: form.data.associacao_produtor_rural,
+          beneficios_obtidos: form.data.beneficios_obtidos,
+          recebe_assistencia_tecnica: form.data.recebe_assistencia_tecnica,
+          capacitacao_administrativa: form.data.capacitacao_administrativa,
+          capacitacao_comercializacao: form.data.capacitacao_comercializacao,
+          suficiencia_equipamentos: form.data.suficiencia_equipamentos,
+          como_supre_deficiencia: form.data.como_supre_deficiencia,
+          apuracao_custo_producao: form.data.apuracao_custo_producao,
+          controle_financeiro: form.data.controle_financeiro,
+          fatores_preco_venda: form.data.fatores_preco_venda,
+          principais_canais_venda: form.data.principais_canais_venda,
+          tipos_comprovante_venda: form.data.tipos_comprovante_venda,
+          acesso_credito_investimento: form.data.acesso_credito_investimento,
+          custeio_atividade: form.data.custeio_atividade,
+          investimentos_infraestrutura: form.data.investimentos_infraestrutura,
+          melhorias_servicos_basicos: form.data.melhorias_servicos_basicos,
+          impacto_vida_financeira_social: form.data.impacto_vida_financeira_social,
+          desafios_pos_regularizacao: form.data.desafios_pos_regularizacao,
+          instrucao_manejo_sustentavel: form.data.instrucao_manejo_sustentavel,
+          sobrevivencia_assentamento: form.data.sobrevivencia_assentamento,
+          condicoes_instalacao_funcionamento: form.data.condicoes_instalacao_funcionamento,
+          melhoria_vida_assentamentos: form.data.melhoria_vida_assentamentos,
+          plano_sair_assentamento: form.data.plano_sair_assentamento,
+          mudanca_vida_assentamento: form.data.mudanca_vida_assentamento,
+          vantagem_ser_assentado: form.data.vantagem_ser_assentado,
+          desvantagem_ser_assentado: form.data.desvantagem_ser_assentado,
+          dificuldades_assentamento: form.data.dificuldades_assentamento,
 
-          // Address
-          street_address: form.data.street_address,
-          city: form.data.city,
-          state: form.data.state,
-          zip: form.data.zip,
-          country: form.data.country,
-
-          // Contact
-          email: form.data.email,
-          phone: form.data.phone,
           // --->> YOUR DATA HERE <---
 
           // Date
@@ -485,12 +512,11 @@ const exporXLSX = (data_objects_export, type) => {
   utils.book_append_sheet(wb, ws, "Data");
   /* export to XLSX or XLS*/
   if (type === 'xls') {
-    writeFileXLSX(wb, "Forms survey " + survey_search.value[0].data.name + "." + type);
+    writeFileXLSX(wb, "Forms survey " + survey_search.value[0].name + "." + type);
   } else {
-    writeFileXLSX(wb, "Forms survey " + survey_search.value[0].data.name + "." + type);
+    writeFileXLSX(wb, "Forms survey " + survey_search.value[0].name + "." + type);
   }
 }
-
 
 const exportFileSheet = (type) => {
   // Clone the data
@@ -501,7 +527,7 @@ const exportFileSheet = (type) => {
     delete row.actions;
     delete row.active;
     delete row.data;
-    delete row.name;
+    // delete row.name;
   });
 
   // Setar survey nome para todas as linhas da coluna survey_name

@@ -1,9 +1,11 @@
+import packageJson from '/package.json'
+
 export default {
   message: {
     // App strings
-    app_name: 'TerraSurvey',
+    app_name: packageJson.name,
+    app_value_version: packageJson.version,
     app_label_version: 'Versão',
-    app_value_version: '1.0.3',
     app_text_copyrigth: 'Todos os direitos reservados 2023-' + new Date().getFullYear() + '. {app_name}©.',
 
     // MY SURVEYJS

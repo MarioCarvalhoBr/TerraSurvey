@@ -6,6 +6,8 @@ export function getByCodeSurveyDB(survey_code) {
 }
 // createSurveyDB
 export function createSurveyDB(data) {
+  data = JSON.parse(JSON.stringify(data));
+
   let KEY_UUID = uuid();
   return db.survey.add({
     // Identification
@@ -21,6 +23,8 @@ export function createSurveyDB(data) {
 }
 
 export function updateSurveyDB(id, data) {
+  data = JSON.parse(JSON.stringify(data));
+
   return db.survey.update(id, {
     // Temporal
     changed: new Date(),
