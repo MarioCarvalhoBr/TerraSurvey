@@ -1,110 +1,537 @@
 {
-    "locale": "en",
-    "completedHtml": {
-      "default": "<h5>Response registered</h5><p>Thank you for completing the survey</p>"
+  "pages": [
+    {
+      "name": "DadosDoEntrevistado",
+      "title": "Dados do Entrevistado",
+      "elements": [
+        {
+          "type": "text",
+          "name": "idade",
+          "title": "Idade (em anos):",
+          "isRequired": true,
+          "inputType": "number",
+          "validators": [
+            {
+              "type": "numeric",
+              "minValue": 1,
+              "text": "Por favor, insira um valor maior que zero."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "name": "tempo_residencia",
+          "title": "Tempo de Residência no Assentamento (anos):",
+          "isRequired": true,
+          "inputType": "number",
+          "validators": [
+            {
+              "type": "numeric",
+              "minValue": 1,
+              "text": "Por favor, insira um valor maior que zero."
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "name": "numero_membros",
+          "title": "Número de Membros na Família (sustento pela propriedade rural):",
+          "isRequired": true,
+          "inputType": "number",
+          "validators": [
+            {
+              "type": "numeric",
+              "minValue": 1,
+              "text": "Por favor, insira um valor maior que zero."
+            }
+          ]
+        }
+      ]
     },
-    "pages": [
-      {
-        "name": "info",
-        "elements": [
-          {
-            "defaultValue": "John",
-            "type": "text",
-            "name": "first_name",
-            "title": "What is your first name?",
-            "isRequired": true
-          },
-          {
-            "defaultValue": "Doe",
-            "type": "text",
-            "name": "last_name",
-            "title": "What is your last name?",
-            "isRequired": true
-          },
-          {
-            "defaultValue": "25-34",
-            "type": "dropdown",
-            "name": "age_range",
-            "title": "Select your age range",
-            "isRequired": true,
-            "choices": ["18-24", "25-34", "35-44", "45-54", "55-64", "65+"]
-          }
-        ],
-        "title": "Info"
-      },
-      {
-        "name": "address",
-        "elements": [
-          {
-            "defaultValue": "123 Main St",
-            "type": "text",
-            "name": "street_address",
-            "title": "What is your street address?",
-            "isRequired": true
-          },
-          {
-            "defaultValue": "Anytown",
-            "type": "text",
-            "name": "city",
-            "title": "What city do you live in?",
-            "isRequired": true
-          },
-          {
-            "defaultValue": "State 1",
-            "type": "dropdown",
-            "name": "state",
-            "title": "Select your state",
-            "isRequired": true,
-            "choices": ["State 1", "State 2", "State 3", "State 4", "State 5"]
-          },
-          {
-            "defaultValue": "12345",
-            "type": "text",
-            "name": "zip",
-            "title": "What is your zip code?",
-            "isRequired": true
-          },
-          {
-            "defaultValue": "Country 1",
-            "type": "dropdown",
-            "name": "country",
-            "title": "Select your country",
-            "isRequired": true,
-            "choices": ["Country 1", "Country 2", "Country 3", "Country 4", "Country 5"]
-          }
-        ],
-        "title": "Address"
-      },
-      {
-        "name": "contact",
-        "elements": [
-          {
-            "defaultValue": "john@doe.com",
-            "type": "text",
-            "name": "email",
-            "title": "What is your email address?",
-            "isRequired": true,
-            "validators": [
-              {
-                "type": "email"
-              }
-            ]
-          },
-          {
-            "defaultValue": "123-456-7890",
-            "type": "text",
-            "name": "phone",
-            "title": "What is your phone number?",
-            "isRequired": true,
-            "inputType": "tel"
-          }
-        ],
-        "title": "Contact"
-      }
-    ],
-    "showPageNumbers": true,
-    "showQuestionNumbers": "on",
-    "showProgressBar": "bottom",
-    "progressBarType": "pages",
-    "mode": "edit"
-  }
+    {
+      "name": "PerfilDoEntrevistado",
+      "title": "Perfil do Entrevistado",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "condicao_posse",
+          "title": "Condição de posse do entrevistado",
+          "isRequired": true,
+          "choices": [
+            "Proprietário",
+            "Arrendante (proprietário do imóvel que arrenda parte do imóvel)",
+            "Usufrutuário",
+            "Meeiro/parceiro",
+            "Posseiro",
+            "Assentado"
+          ],
+          "hasOther": true,
+          "otherText": "Outro (especifique)"
+        },
+        {
+          "type": "radiogroup",
+          "name": "escolaridade",
+          "title": "Escolaridade do entrevistado",
+          "isRequired": true,
+          "choices": [
+            "Não alfabetizado",
+            "Ensino fundamental incompleto",
+            "Ensino fundamental completo",
+            "Ensino médio",
+            "Ensino técnico",
+            "Ensino superior",
+            "Pós-graduação"
+          ]
+        },
+        {
+          "type": "radiogroup",
+          "name": "mao_de_obra",
+          "title": "Em sua atividade agropecuária, utiliza mão de obra",
+          "isRequired": true,
+          "choices": [
+            "Apenas o produtor e sua família",
+            "Predominantemente mão de obra familiar, mais funcionário(s) permanente(s)",
+            "Predominantemente mão de obra permanente contratada"
+          ]
+        },
+        {
+          "type": "radiogroup",
+          "name": "local_moradia",
+          "title": "Quanto à moradia, o beneficiário",
+          "isRequired": true,
+          "choices": [
+            "Mora na propriedade agrícola",
+            "Mora na sede do município da propriedade ou em município vizinho",
+            "Mora em outro município, que não é um município vizinho"
+          ]
+        },
+        {
+          "type": "radiogroup",
+          "name": "propriedade_moradia",
+          "title": "Quanto a propriedade da moradia, a residência:",
+          "isRequired": true,
+          "choices": [
+            "É própria",
+            "É alugada"
+          ],
+          "hasOther": true,
+          "otherText": "Outro (especifique)"
+        },
+        {
+          "type": "radiogroup",
+          "name": "renda_agropecuaria",
+          "title": "Qual a porcentagem da renda do proprietário é proveniente da atividade agropecuária?",
+          "isRequired": true,
+          "choices": [
+            "Menor ou igual a 50%",
+            "Maior que 50%"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "InformacoesDaPropriedade",
+      "title": "Informações da Propriedade",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "estagio_documentacao",
+          "title": "Em qual estágio de documentação da regularização fundiária, o lote onde você reside se encontra?",
+          "isRequired": true,
+          "choices": [
+            "Certidão de concessão de uso",
+            "Título definitivo"
+          ],
+          "hasOther": true,
+          "otherText": "Por favor, especifique"
+        },
+        {
+          "type": "checkbox",
+          "name": "atividades_agropecuarias",
+          "title": "Selecione até três das principais atividades agropecuárias que geram renda na propriedade",
+          "isRequired": true,
+          "choices": [
+            "Apicultura e/ou meliponicultura",
+            "Avicultura de corte",
+            "Avicultura de postura",
+            "Bovinocultura de corte",
+            "Bovinocultura de leite",
+            "Cafeicultura",
+            "Cana-de-açúcar",
+            "Floricultura e plantas ornamentais",
+            "Fruticultura",
+            "Grãos (milho, soja, arroz etc.)",
+            "Horticultura",
+            "Piscicultura/aquicultura"
+          ],
+          "hasOther": true,
+          "otherText": "Outra (especifique)",
+          "maxSelectedChoices": 3
+        },
+        {
+          "type": "checkbox",
+          "name": "atividades_nao_agropecuarias",
+          "title": "Tipos de atividades não agropecuárias que geram renda na propriedade: (Marque todas as opções aplicáveis)",
+          "isRequired": true,
+          "choices": [
+            "Não há atividade não agropecuária geradora de renda na propriedade",
+            "Atividade de turismo rural",
+            "Pequena agroindústria",
+            "Prestação de serviços (ex.: serviços com máquinas e implementos para outros produtores)",
+            "Arrendamento ou aluguel de partes da propriedade",
+            "Renda de aplicações financeiras (ex.: poupança, fundos etc.)",
+            "Aposentadoria rural"
+          ],
+          "hasOther": true,
+          "otherText": "Outra (especifique)"
+        }
+      ]
+    },
+    {
+      "name": "OrganizacaoRuralAssistenciaCapacitacao",
+      "title": "Organização Rural, Assistência Técnica e Capacitação",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "associacao_produtor_rural",
+          "title": "É associado de alguma organização de produtores rurais?",
+          "isRequired": true,
+          "choices": [
+            "Não",
+            "Sim, associação de produtores rurais",
+            "Sim, cooperativa de produtores rurais",
+            "Sim, sindicato rural patronal",
+            "Sim, sindicato de trabalhadores rurais"
+          ],
+          "hasOther": true,
+          "otherText": "Outra. Qual?"
+        },
+        {
+          "type": "checkbox",
+          "name": "beneficios_obtidos",
+          "title": "Que benefícios obtém da(s) organização(ões) de produtores rurais?",
+          "isRequired": true,
+          "choices": [
+            "A organização não disponibiliza de serviços aos associados",
+            "Assistência técnica",
+            "Aquisição de bens (insumos)",
+            "Serviços sociais (assistência médica, odontológica, educacional)",
+            "Serviços de comercialização coletiva de produtos agrícolas",
+            "Prestação de serviços agrícolas (patrulha agrícola, mão de obra)",
+            "Serviços de beneficiamento, processamento, armazenamento e/ou transporte de produtos",
+            "Serviços contábeis e jurídicos",
+            "Não se aplica"
+          ],
+          "hasOther": true,
+          "otherText": "Outro. Qual?"
+        },
+        {
+          "type": "radiogroup",
+          "name": "recebe_assistencia_tecnica",
+          "title": "Recebe assistência técnica",
+          "isRequired": true,
+          "choices": [
+            "Não recebe assistência técnica"
+          ],
+          "hasOther": true,
+          "otherText": "Sim. Qual?"
+        },
+        {
+          "type": "radiogroup",
+          "name": "capacitacao_administrativa",
+          "title": "O produtor já recebeu alguma capacitação sobre administração da propriedade rural (ou similar)?",
+          "isRequired": true,
+          "choices": [
+            "Não",
+            "Sim, mas não aplica o conhecimento administrativo",
+            "Sim e aplica o conhecimento administrativo"
+          ]
+        },
+        {
+          "type": "radiogroup",
+          "name": "capacitacao_comercializacao",
+          "title": "O produtor já recebeu alguma capacitação sobre comercialização?",
+          "isRequired": true,
+          "choices": [
+            "Não",
+            "Sim, mas não aplica o conhecimento sobre comercialização adquirido",
+            "Sim e aplica o conhecimento sobre comercialização adquirido"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DesempenhoGestaoPropriedade",
+      "title": "Desempenho e Gestão da Propriedade",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "suficiencia_equipamentos",
+          "title": "Considera que as máquinas e os equipamentos que dispõe são suficientes para realizar suas atividades?",
+          "isRequired": true,
+          "choices": [
+            "Excedente",
+            "Suficiente",
+            "Insuficiente"
+          ]
+        },
+        {
+          "type": "radiogroup",
+          "name": "como_supre_deficiencia",
+          "title": "Como supre sua deficiência de máquinas e equipamentos?",
+          "isRequired": true,
+          "choices": [
+            "Não se aplica",
+            "Aluga de vizinhos e/ou empresas",
+            "Solicita na organização rural (associação e/ou cooperativa)",
+            "Solicita na prefeitura",
+            "Faz empréstimo e/ou permuta"
+          ],
+          "hasOther": true,
+          "otherText": "Outros. Qual?"
+        },
+        {
+          "type": "radiogroup",
+          "name": "apuracao_custo_producao",
+          "title": "Realiza apuração de custo de produção?",
+          "isRequired": true,
+          "choices": [
+            "Não",
+            "Anota receitas e despesas em caderno",
+            "Usa livro-caixa",
+            "Adota planilha eletrônica",
+            "Adota sistema informatizado"
+          ]
+        },
+        {
+          "type": "radiogroup",
+          "name": "controle_financeiro",
+          "title": "Faz algum controle financeiro em sua propriedade?",
+          "isRequired": true,
+          "choices": [
+            "Não faz nenhum controle financeiro",
+            "Feito pelo escritório de contabilidade (o produtor não tem conhecimento de todos os procedimentos realizados)",
+            "Feito pelo escritório de contabilidade (o produtor tem conhecimento dos procedimentos)",
+            "Controle de contas a pagar e receber",
+            "Declaração de Imposto de Renda",
+            "Capital de giro",
+            "Fluxo de caixa"
+          ],
+          "hasOther": true,
+          "otherText": "Outros. Qual?"
+        }
+      ]
+    },
+     
+    {
+      "name": "ComercializacaoCredito",
+      "title": "Comercialização, Crédito, Seguro Rural e Regularização Ambiental",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "fatores_preco_venda",
+          "title": "O que leva em conta ao estimar o preço de venda de seus produtos ou serviços?",
+          "isRequired": true,
+          "choices": [
+            "Custos de produção",
+            "Preços praticados no mercado",
+            "Preços pré-estabelecidos por contratos na comercialização",
+            "Custo do processamento",
+            "Produto é comercializado por preço definido por terceiros (intermediários)"
+          ],
+          "hasOther": true,
+          "otherText": "Outros. O que?"
+        },
+        {
+          "type": "checkbox",
+          "name": "principais_canais_venda",
+          "title": "Quais os cinco (5) principais canais de venda de seus produtos ou serviços agropecuários?",
+          "isRequired": true,
+          "choices": [
+            "Compras Públicas",
+            "Por meio de associação e/ou cooperativa",
+            "Feira livre e/ou feira do produtor",
+            "Por meio de intermediários",
+            "Venda direta para estabelecimentos comerciais (supermercados, restaurantes etc.)",
+            "Venda direta ao consumidor e/ou cestas",
+            "Ceasa",
+            "Não se aplica"
+          ],
+          "hasOther": true,
+          "otherText": "Outros. Quais?",
+          "maxSelectedChoices": 5,
+          "validators": [
+            {
+              "type": "answercount",
+              "text": "Selecione até 5 opções",
+              "maxCount": 5
+            }
+          ]
+        },
+        {
+          "type": "radiogroup",
+          "name": "tipos_comprovante_venda",
+          "title": "Quais os tipos de comprovante de venda emitidos pelo produtor?",
+          "isRequired": true,
+          "choices": [
+            "Não emite comprovantes de venda",
+            "Emite recibos ou outros documentos não fiscais (por ex.: romaneio)",
+            "Emite nota fiscal manual (talonário do produtor)",
+            "Emite nota fiscal eletrônica"
+          ]
+        },
+        {
+          "type": "radiogroup",
+          "name": "acesso_credito_investimento",
+          "title": "O produtor já acessou alguma linha de crédito para investimento?",
+          "isRequired": true,
+          "choices": [
+            "Não"
+          ],
+          "hasOther": true,
+          "otherText": "Sim. Qual?"
+        },
+        {
+          "type": "radiogroup",
+          "name": "custeio_atividade",
+          "title": "Como o produtor custeia a sua atividade?",
+          "isRequired": true,
+          "choices": [
+            "Recursos próprios",
+            "Integração com organizações rurais e empresas parceiras",
+            "Pronaf",
+            "Pronamp",
+            "Cédula de produtor rural",
+            "Linhas de financiamento específicas (bancárias e de organizações rurais)"
+          ],
+          "hasOther": true,
+          "otherText": "Outros. Qual?"
+        }
+      ]
+    },
+    {
+      "name": "ImpactosRegularizacaoFund",
+      "title": "Impactos da Regularização Fundiária",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "investimentos_infraestrutura",
+          "title": "Houve investimentos em infraestrutura da região (estradas, eletricidade, água, etc.) após a regularização fundiária?",
+          "choices": ["Não"],
+          "hasOther": true,
+          "otherText": "Sim. Quais?"
+        },
+        {
+          "type": "radiogroup",
+          "name": "melhorias_servicos_basicos",
+          "title": "Houve melhorias no acesso a serviços básicos, como saúde e educação, após a regularização fundiária?",
+          "choices": ["Não"],
+          "hasOther": true,
+          "otherText": "Sim. Quais?"
+        },
+        {
+          "type": "radiogroup",
+          "name": "impacto_vida_financeira_social",
+          "title": "Como a regularização fundiária impactou sua vida financeira e social?",
+          "choices": [
+            "Melhorou significativamente",
+            "Melhorou moderadamente",
+            "Não teve impacto significativo",
+            "Piorou moderadamente",
+            "Piorou significativamente"
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "desafios_pos_regularizacao",
+          "title": "Quais desafios ainda enfrenta mesmo após a regularização fundiária?",
+          "choices": [
+            "Acesso a crédito",
+            "Infraestrutura inadequada",
+            "Condições climáticas adversas",
+            "Mercado para produtos agrícolas",
+            "Falta de capacitação"
+          ],
+          "hasOther": true,
+          "otherText": "Outros (especificar):"
+        },
+        {
+          "type": "radiogroup",
+          "name": "instrucao_manejo_sustentavel",
+          "title": "Após regularização, houve alguma instrução sobre manejo sustentável?",
+          "choices": [
+            "Não",
+            "Sim, mas não aplica o conhecimento",
+            "Sim e aplica o conhecimento"
+          ]
+        },
+        {
+          "type": "radiogroup",
+          "name": "sobrevivencia_assentamento",
+          "title": "Acredita ser possível sobreviver com dignidade em um assentamento?",
+          "choices": ["Sim"],
+          "hasOther": true,
+          "otherText": "Não. Por que?"
+        },
+        {
+          "type": "radiogroup",
+          "name": "condicoes_instalacao_funcionamento",
+          "title": "Quais as condições de instalação e funcionamento do assentamento promovidas pelo INCRA?",
+          "choices": [
+            "Muito insatisfatórias",
+            "Insatisfatórias",
+            "Neutras",
+            "Satisfatórias",
+            "Muito satisfatórias"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ExplorarEmEntrevista",
+      "title": "Explorar em Entrevista (opcionais)",
+      "elements": [
+        {
+          "type": "comment",
+          "name": "melhoria_vida_assentamentos",
+          "title": "O que tornaria melhor a vida das famílias nos assentamentos?"
+        },
+        {
+          "type": "comment",
+          "name": "plano_sair_assentamento",
+          "title": "Pretende sair do Assentamento ou vender/arrendar o lote? Por quê?"
+        },
+        {
+          "type": "comment",
+          "name": "mudanca_vida_assentamento",
+          "title": "Em poucas palavras, o que mudou sua vida, com a sua vinda para o Assentamento?"
+        },
+        {
+          "type": "comment",
+          "name": "vantagem_ser_assentado",
+          "title": "Qual a principal vantagem em ser assentado?"
+        },
+        {
+          "type": "comment",
+          "name": "desvantagem_ser_assentado",
+          "title": "Qual a principal desvantagem em ser assentado?"
+        },
+        {
+          "type": "comment",
+          "name": "dificuldades_assentamento",
+          "title": "Em poucas palavras, quais as dificuldades encontradas no assentamento?"
+        }
+      ]
+    }
+  ],
+  "showQuestionNumbers": "on",
+  "showProgressBar": "top",
+  "startSurveyText": "Iniciar Questionário",
+  "pagePrevText": "Anterior",
+  "pageNextText": "Próximo",
+  "completeText": "Finalizar",
+  "requiredText": "",
+  "questionTitleTemplate": "{no}. {title} {require}:",
+  "requiredError": "Resposta obrigatória."
+
+}
