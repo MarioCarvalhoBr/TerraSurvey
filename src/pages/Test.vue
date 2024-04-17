@@ -1,58 +1,53 @@
 <template>
-  <div>
-    <div class="d-flex align-center">
-      <h1 class="flex-grow-1">{{ $t('message.page_test_title') }}</h1>
+  <v-app id="inspire">
 
-      <v-menu>
-      <template v-slot:activator="{ props }">
-        <v-btn icon v-bind="props">
-            <v-icon>{{ selectedLanguage === 'en' ? 'mdi-translate' : 'mdi-translate' }}</v-icon>
-          </v-btn>
-      </template>
-      <v-list>
-        <v-list-item
-          v-for="(option, index) in languageOptions"
-          :value="index"
-          :key="option.value" @click="setLanguage(option.value)"
-        >
-          <v-list-item-title>{{ option.text }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
+    <v-app-bar>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-    </div>
+      <v-app-bar-title>Application</v-app-bar-title>
+    </v-app-bar>
 
-    <div id="app">
-      <p>{{ $t("message.hello", { name: userName }) }}</p>
-    </div>
-  </div>
+    <v-navigation-drawer
+      v-model="drawer"
+      temporary
+    >
+      <!--  -->
+    </v-navigation-drawer>
+
+    <v-main class="bg-grey-lighten-2">
+      <v-container>
+        <v-row>
+          <template v-for="n in 4" :key="n">
+            <v-col
+              class="mt-2"
+              cols="12"
+            >
+              <strong>Category {{ n }}</strong>
+            </v-col>
+
+            <v-col
+              v-for="j in 6"
+              :key="`${n}${j}`"
+              cols="6"
+              md="2"
+            >
+              <v-sheet height="150"></v-sheet>
+            </v-col>
+          </template>
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useI18n } from 'vue-i18n';
+  import { ref } from 'vue'
 
-const userName = ref('Mário');
-const { locale } = useI18n();
-const { t } = useI18n(); // Usando useI18n para acessar o método t
+  const drawer = ref(null)
+</script>
 
-const selectedLanguage = ref(localStorage.getItem('preferredLanguage') || 'pt');
-
-const languageOptions = [
-  { text: 'en', value: 'en' },
-  { text: 'pt', value: 'pt' },
-];
-
-const setLanguage = (language) => {
-  selectedLanguage.value = language;
-  locale.value = language;
-  localStorage.setItem('preferredLanguage', language);
-};
-
-onMounted(() => {
-  locale.value = selectedLanguage.value;
-  console.log('Locale:', locale.value);
-  console.log('Selected Language:', selectedLanguage.value);
-  console.log('languageOptions:', languageOptions);
-});
+<script>
+  export default {
+    data: () => ({ drawer: null }),
+  }
 </script>

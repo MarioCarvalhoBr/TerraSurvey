@@ -24,3 +24,11 @@
     justify-content: center;
     gap: 10px;
   }
+
+  .fixed-bar-my-custom {
+    position: sticky;
+    position: -webkit-sticky; /* for Safari */
+    top: 6em;
+    z-index: 2;
+  }
+  
