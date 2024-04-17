@@ -524,7 +524,9 @@
       ]
     }
   ],
+  "showPageNumbers": true,
   "showQuestionNumbers": "on",
+  "mode": "edit",
   "showProgressBar": "top",
   "startSurveyText": "Iniciar Questionário",
   "pagePrevText": "Anterior",

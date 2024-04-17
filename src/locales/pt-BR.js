@@ -19,7 +19,7 @@ export default {
     // CÓDIGO DA PÁGINA DE FORMULÁRIOS
     // Rótulos da Página de Códigos de Formulários
     page_survey_code_label_title: "Meus Formulários",
-    page_survey_code_label_all_forms: "Todos os Formulários",
+    page_survey_code_label_all_forms: "Todos os questionários",
     page_survey_code_label_active_table: "Mostrar Tabela",
     // Botões da Página de Códigos de Formulários
     page_survey_code_button_new_form: "Novo Formulário",

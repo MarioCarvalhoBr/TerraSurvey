@@ -23,13 +23,13 @@
     <!-- Forms display -->
     <v-row v-if="forms_display_type === 'Cards'">
 
-      <v-col v-for="form in data_objects" :key="form.id" cols="12" md="6" lg="3">
+      <v-col v-for="(form, index) in data_objects" :key="form.id" cols="12" md="6" lg="3">
         <v-card class="elevation-8" color="primary" dark>
-          <v-card-title>{{ form.first_name }} {{ form.last_name }}</v-card-title>
-          <v-card-text>{{ form.street_address }}, {{ form.city }}, {{ form.state }}, {{
-            form.zip }},
-            {{ form.country
-            }}</v-card-text>
+          <v-card-title>Questionário {{index + 1}} </v-card-title>
+          <v-card-subtitle><strong>{{ form.data.condicao_posse }}</strong></v-card-subtitle>
+          <v-card-text>
+            Idade: {{ form.data.idade }}, Tempo de Residência: {{ form.data.tempo_residencia }}, Número de Membros: {{ form.data.numero_membros }}
+          </v-card-text>
           <div class="">
             <v-card-subtitle> {{ $t('message.page_surveys_label_updated') }}: {{ new Date(form.changed).toLocaleDateString("pt-BR") }}</v-card-subtitle>
             <v-card-subtitle> {{ $t('message.page_surveys_label_created') }}: {{ new Date(form.created).toLocaleDateString("pt-BR") }}</v-card-subtitle>
