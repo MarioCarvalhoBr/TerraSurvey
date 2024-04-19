@@ -100,7 +100,7 @@
           "title": "Quanto à moradia, o beneficiário",
           "isRequired": true,
           "choices": [
-            "Mora na propriedade agrícola",
+            "Mora na propriedade rural",
             "Mora na sede do município da propriedade ou em município vizinho",
             "Mora em outro município, que não é um município vizinho"
           ]
@@ -120,7 +120,7 @@
         {
           "type": "radiogroup",
           "name": "renda_agropecuaria",
-          "title": "Qual a porcentagem da renda do proprietário é proveniente da atividade agropecuária?",
+          "title": "Qual a porcentagem da renda do proprietário é proveniente da atividade rural?",
           "isRequired": true,
           "choices": [
             "Menor ou igual a 50%",
@@ -148,7 +148,7 @@
         {
           "type": "checkbox",
           "name": "atividades_agropecuarias",
-          "title": "Selecione até três das principais atividades agropecuárias que geram renda na propriedade",
+          "title": "Selecione até três das principais atividades rurais que geram renda na propriedade",
           "isRequired": true,
           "choices": [
             "Apicultura e/ou meliponicultura",
