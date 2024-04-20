@@ -1,6 +1,6 @@
 {
   "name": "TerraSurvey",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Projeto coleta de dados de assentamentos",
   "scripts": {
     "dev": "vite",
