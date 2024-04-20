@@ -10,9 +10,7 @@
             </v-col>
           </v-row>
 
-          <small class="text-caption text-medium-emphasis">{{ 
-          $t('message.my_components_dialog_label_required_field') 
-          }}</small>
+          <small class="text-caption text-medium-emphasis">{{ $t('message.my_components_dialog_label_required_field') }}</small>
         </v-card-text>
         <v-divider></v-divider>
 

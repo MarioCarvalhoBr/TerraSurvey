@@ -208,7 +208,6 @@ const openDialogCopyForm = (form) => {
   survey.mode = 'edit';
   survey.showProgressBar = 'bottom';
 
-
   // Setup SurveyJS label texts
   survey.pagePrevText = t('message.my_surveyjs_page_prev_text');
   survey.pageNextText = t('message.my_surveyjs_page_next_text');
@@ -222,7 +221,7 @@ const openDialogCopyForm = (form) => {
 const openDialogDeleteForm = (form) => {
   console.log('openDialogDeleteForm to form:', JSON.stringify(form, null, 3));
   form_to_delete.value = form;
-  myDialogDelete.value.createDialog(t('message.page_survey_code_dialog_delete_form'), t('message.page_survey_code_dialog_confirm_delete'), 'error', 'mdi-delete', { confirm: 'Delete', cancel: 'Close' }, { confirm: 'red', cancel: 'black' });
+  myDialogDelete.value.createDialog(t('message.page_survey_code_dialog_delete_form'), t('message.page_survey_code_dialog_confirm_delete'), 'error', 'mdi-delete', { confirm: t('message.page_surveys_button_delete'), cancel: t('message.page_surveys_button_close') }, { confirm: 'red', cancel: 'black' });
 }
 const closeDialogDelete = () => {
   console.log('Closed from MyDialogComponent');

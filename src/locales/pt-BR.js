@@ -8,6 +8,12 @@ export default {
     app_label_version: 'Versão',
     app_text_copyrigth: 'Todos os direitos reservados 2023-' + new Date().getFullYear() + '. {app_name}©.',
 
+    // MY DIALOGS
+    my_dialog_button_close: 'Fechar',
+    my_dialog_button_cancel: 'Cancelar',
+    my_dialog_button_confirm: 'Confirmar',
+    my_dialog_button_ok: 'OK',
+
     // MY SURVEYJS
     my_surveyjs_page_prev_text: "Anterior",
     my_surveyjs_page_next_text: "Próximo",
