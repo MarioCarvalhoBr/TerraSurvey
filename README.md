@@ -83,6 +83,10 @@ Contributions to TerraSurvey are welcome! If you have ideas or suggestions to im
 
 # Deploy
 ```bash
+# Build
+npm run build
+
+# Firebase CLI
 npm install -g firebase-tools
 firebase login
 firebase init
