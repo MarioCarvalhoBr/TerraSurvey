@@ -382,17 +382,6 @@
         },
         {
           "type": "radiogroup",
-          "name": "acesso_credito_investimento",
-          "title": "O produtor já acessou alguma linha de crédito para investimento?",
-          "isRequired": true,
-          "choices": [
-            "Não"
-          ],
-          "hasOther": true,
-          "otherText": "Sim. Qual?"
-        },
-        {
-          "type": "radiogroup",
           "name": "custeio_atividade",
           "title": "Como o produtor custeia a sua atividade?",
           "isRequired": true,
@@ -495,26 +484,6 @@
           "type": "comment",
           "name": "melhoria_vida_assentamentos",
           "title": "O que tornaria melhor a vida das famílias nos assentamentos?"
-        },
-        {
-          "type": "comment",
-          "name": "plano_sair_assentamento",
-          "title": "Pretende sair do Assentamento ou vender/arrendar o lote? Por quê?"
-        },
-        {
-          "type": "comment",
-          "name": "mudanca_vida_assentamento",
-          "title": "Em poucas palavras, o que mudou sua vida, com a sua vinda para o Assentamento?"
-        },
-        {
-          "type": "comment",
-          "name": "vantagem_ser_assentado",
-          "title": "Qual a principal vantagem em ser assentado?"
-        },
-        {
-          "type": "comment",
-          "name": "desvantagem_ser_assentado",
-          "title": "Qual a principal desvantagem em ser assentado?"
         },
         {
           "type": "comment",

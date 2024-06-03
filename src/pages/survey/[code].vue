@@ -393,7 +393,6 @@ const getAllForms = async (survey_code) => {
           fatores_preco_venda: form.data.fatores_preco_venda,
           principais_canais_venda: form.data.principais_canais_venda,
           tipos_comprovante_venda: form.data.tipos_comprovante_venda,
-          acesso_credito_investimento: form.data.acesso_credito_investimento,
           custeio_atividade: form.data.custeio_atividade,
           investimentos_infraestrutura: form.data.investimentos_infraestrutura,
           melhorias_servicos_basicos: form.data.melhorias_servicos_basicos,
@@ -403,10 +402,6 @@ const getAllForms = async (survey_code) => {
           sobrevivencia_assentamento: form.data.sobrevivencia_assentamento,
           condicoes_instalacao_funcionamento: form.data.condicoes_instalacao_funcionamento,
           melhoria_vida_assentamentos: form.data.melhoria_vida_assentamentos,
-          plano_sair_assentamento: form.data.plano_sair_assentamento,
-          mudanca_vida_assentamento: form.data.mudanca_vida_assentamento,
-          vantagem_ser_assentado: form.data.vantagem_ser_assentado,
-          desvantagem_ser_assentado: form.data.desvantagem_ser_assentado,
           dificuldades_assentamento: form.data.dificuldades_assentamento,
 
           // --->> YOUR DATA HERE <---
