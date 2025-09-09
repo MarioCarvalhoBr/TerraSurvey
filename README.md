@@ -92,6 +92,20 @@ firebase login
 firebase init
 firebase deploy
 ```
+## Citation
+```
+@misc{carvalho_terrasurvey_2024,
+  author    = {Mário de Araújo Carvalho},
+  title     = {TerraSurvey - Progressive Web App for advanced application aimed at collecting and managing data},
+  month     = {mar},
+  year = {2024},
+	copyright = {MIT},
+	url = {https://github.com/MarioCarvalhoBr/TerraSurvey},
+	urldate = {2025-09-07},
+	publisher = {GitHub},
+}
+```
+
 ## License
 
 TerraSurvey is under the MIT License. See the [LICENSE](LICENSE) file for more details.
